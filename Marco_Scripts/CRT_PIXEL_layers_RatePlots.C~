@@ -1,0 +1,1376 @@
+void CRT_PIXEL_layers_RatePlots()
+{
+   TFile *file = new TFile("Prompt_2018_Av1.root");
+   
+   bool IsFileExist;
+   IsFileExist = file->IsZombie();
+   if(IsFileExist)
+   {
+      cout<<endl<<"====================================================================================================="<<endl;
+      cout<<"File not found. Check the file!"<<endl;
+      cout<<"====================================================================================================="<<endl<<endl;
+      exit (EXIT_FAILURE);
+   }
+
+   TTree *tree;
+   tree = (TTree*)file->Get("demo/Run");
+
+   FILE * pFile;
+   pFile =  fopen ("tracksInfo.txt","w");
+   
+   double  run_time;
+   unsigned int runnum;
+   int     number_of_events;
+   int     number_of_tracks;
+   int     number_of_tracks_PIX;
+   int     number_of_tracks_FPIX;
+   int     number_of_tracks_BPIX;
+   int     number_of_tracks_TID;
+   int     number_of_tracks_TIDM;
+   int     number_of_tracks_TIDP;
+   int     number_of_tracks_TIB;
+   int     number_of_tracks_TEC;
+   int     number_of_tracks_TECP;
+   int     number_of_tracks_TECM;
+   int     number_of_tracks_TOB;
+   
+   int     number_of_tracks_BPIX_layer1;
+   int     number_of_tracks_BPIX_layer2;
+   int     number_of_tracks_BPIX_layer3;
+   int     number_of_tracks_BPIX_layer4;
+   int     number_of_tracks_FPIX_disk1;
+   int     number_of_tracks_FPIX_disk2;
+   int     number_of_tracks_FPIX_disk3;
+   int     number_of_tracks_FPIX_disk1_plus;
+   int     number_of_tracks_FPIX_disk1_minus;
+   int     number_of_tracks_FPIX_disk2_plus;
+   int     number_of_tracks_FPIX_disk2_minus;
+   int     number_of_tracks_FPIX_disk3_plus;
+   int     number_of_tracks_FPIX_disk3_minus; 
+   
+   tree->SetBranchAddress("run_time", &run_time);
+   tree->SetBranchAddress("runnum", &runnum);
+   tree->SetBranchAddress("number_of_events", &number_of_events);
+   tree->SetBranchAddress("number_of_tracks", &number_of_tracks);
+   tree->SetBranchAddress("number_of_tracks_PIX", &number_of_tracks_PIX);
+   tree->SetBranchAddress("number_of_tracks_FPIX", &number_of_tracks_FPIX);
+   tree->SetBranchAddress("number_of_tracks_BPIX", &number_of_tracks_BPIX);
+   tree->SetBranchAddress("number_of_tracks_TID", &number_of_tracks_TID);
+   tree->SetBranchAddress("number_of_tracks_TIDM", &number_of_tracks_TIDM);
+   tree->SetBranchAddress("number_of_tracks_TIDP", &number_of_tracks_TIDP);
+   tree->SetBranchAddress("number_of_tracks_TIB", &number_of_tracks_TIB);
+   tree->SetBranchAddress("number_of_tracks_TEC", &number_of_tracks_TEC);
+   tree->SetBranchAddress("number_of_tracks_TECP", &number_of_tracks_TECP);
+   tree->SetBranchAddress("number_of_tracks_TECM", &number_of_tracks_TECM);
+   tree->SetBranchAddress("number_of_tracks_TOB", &number_of_tracks_TOB);
+
+   tree->SetBranchAddress("number_of_tracks_BPIX_layer1", &number_of_tracks_BPIX_layer1);
+   tree->SetBranchAddress("number_of_tracks_BPIX_layer2", &number_of_tracks_BPIX_layer2);
+   tree->SetBranchAddress("number_of_tracks_BPIX_layer3", &number_of_tracks_BPIX_layer3);
+   tree->SetBranchAddress("number_of_tracks_BPIX_layer4", &number_of_tracks_BPIX_layer4);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk1", &number_of_tracks_FPIX_disk1);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk2", &number_of_tracks_FPIX_disk2);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk3", &number_of_tracks_FPIX_disk3);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk1_plus", &number_of_tracks_FPIX_disk1_plus);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk1_minus", &number_of_tracks_FPIX_disk1_minus);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk2_plus", &number_of_tracks_FPIX_disk2_plus);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk2_minus", &number_of_tracks_FPIX_disk2_minus);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk3_plus", &number_of_tracks_FPIX_disk3_plus);
+   tree->SetBranchAddress("number_of_tracks_FPIX_disk3_minus", &number_of_tracks_FPIX_disk3_minus);
+   
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   //		Various Rates Declerations				
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+   vector<double>  events               ;
+   vector<double>  event_rate 		;
+   vector<double>  event_rate_err	;
+   vector<double>  track_rate 		;
+   vector<double>  track_rate_err	;
+   vector<double>  runNumber  		;
+   vector<double>  runNumber_err	;
+   vector<double>  track_rate_PIX 	;
+   vector<double>  track_rate_PIX_err 	;
+   vector<double>  track_rate_FPIX	;
+   vector<double>  track_rate_FPIX_err	;
+   vector<double>  track_rate_BPIX 	;
+   vector<double>  track_rate_BPIX_err	;
+   vector<double>  track_rate_TOB 	;
+   vector<double>  track_rate_TOB_err 	;
+   vector<double>  track_rate_TIB 	;
+   vector<double>  track_rate_TIB_err 	;
+   vector<double>  track_rate_TID 	;
+   vector<double>  track_rate_TID_err 	;
+   vector<double>  track_rate_TEC 	;
+   vector<double>  track_rate_TEC_err 	;
+   vector<double>  track_rate_TECP 	;
+   vector<double>  track_rate_TECP_err	;
+   vector<double>  track_rate_TECM 	;
+   vector<double>  track_rate_TECM_err	;
+   vector<double>  tracks		;
+   vector<double>  tracks_err		;
+   vector<double>  tracks_bpix		;
+   vector<double>  tracks_fpix		;
+   vector<double>  tracks_pix		;
+   vector<double>  tracks_tec		;
+   vector<double>  weight		;
+
+   vector<double>  track_rate_BPIX_layer1        	;
+   vector<double>  track_rate_BPIX_layer1_err   	;
+   vector<double>  track_rate_BPIX_layer2       	;
+   vector<double>  track_rate_BPIX_layer2_err	        ;
+   vector<double>  track_rate_BPIX_layer3       	;
+   vector<double>  track_rate_BPIX_layer3_err	        ;
+   vector<double>  track_rate_BPIX_layer4       	;
+   vector<double>  track_rate_BPIX_layer4_err	        ;
+   vector<double>  track_rate_FPIX_disk1         	;
+   vector<double>  track_rate_FPIX_disk1_err     	;
+   vector<double>  track_rate_FPIX_disk2         	;
+   vector<double>  track_rate_FPIX_disk2_err    	;
+   vector<double>  track_rate_FPIX_disk3        	;
+   vector<double>  track_rate_FPIX_disk3_err     	;
+   vector<double>  track_rate_FPIX_disk1_plus      	;
+   vector<double>  track_rate_FPIX_disk1_plus_err	;
+   vector<double>  track_rate_FPIX_disk1_minus 	        ;
+   vector<double>  track_rate_FPIX_disk1_minus_err	;
+   vector<double>  track_rate_FPIX_disk2_plus     	;
+   vector<double>  track_rate_FPIX_disk2_plus_err	;
+   vector<double>  track_rate_FPIX_disk2_minus   	;
+   vector<double>  track_rate_FPIX_disk2_minus_err	;
+   vector<double>  track_rate_FPIX_disk3_plus 	        ;
+   vector<double>  track_rate_FPIX_disk3_plus_err	;
+   vector<double>  track_rate_FPIX_disk3_minus    	;
+   vector<double>  track_rate_FPIX_disk3_minus_err	;   
+   
+   string Bar_Xtitle[8] = {"Event","Track","FPIX","BPIX","TIB","TID","TOB","TEC"};
+   // string Bar_Xtitle_PIXEL[18] = {"Event","Track","PIXEL","BPIX", "BPIX_1","BPIX_2","BPIX_3","BPIX_4","FPIX", "FPIX_1","FPIX_2","FPIX_3","FPIX_1+","FPIX_1-", "FPIX_2+", "FPIX_2-","FPIX_3+","FPIX_3-" };
+   string Bar_Xtitle_BPIX[6] = {"PIXEL","BPIX", "BPIX_1","BPIX_2","BPIX_3","BPIX_4"};
+   string Bar_Xtitle_FPIX[11] = {"PIXEL","FPIX", "FPIX_1","FPIX_1+","FPIX_1-","FPIX_2", "FPIX_2+", "FPIX_2-", "FPIX_3", "FPIX_3+","FPIX_3-" };
+   string Bar_Xtitle_PIXEL[10] = {"PIXEL","BPIX", "BPIX_1","BPIX_2","BPIX_3","BPIX_4","FPIX", "FPIX_1","FPIX_2","FPIX_3"};
+   double Bar_Ytitle_BPIX[6] = {0};
+   double Bar_Ytitle_FPIX[11] = {0};
+   double Bar_Ytitle_PIXEL[10] = {0};
+   double Bar_Ytitle[8] = {0};
+   
+   
+   int j=0;
+   double total_tracks = 0;
+   double bpix_tracks = 0;
+   double fpix_tracks = 0;
+   double pix_tracks = 0;
+   double tracks_TECoff = 0;
+   
+   fprintf(pFile,"##################################################\n");
+   fprintf(pFile,"         Track rate for each run number           \n");
+   fprintf(pFile,"##################################################\n");
+
+   Long64_t n = tree->GetEntriesFast();
+   std::cout<<"Total Runs in this files: "<<n<<endl;
+   for (Long64_t jentry=0; jentry<n;jentry++) 
+   {
+     tree->GetEntry(jentry);
+     if (run_time == 0 || run_time < 0) continue;
+
+     events              .push_back( number_of_events);
+     event_rate	         .push_back( number_of_events/run_time );
+     runNumber 	         .push_back( runnum );
+     track_rate	         .push_back( number_of_tracks/run_time );
+     track_rate_PIX	 .push_back( number_of_tracks_PIX/run_time );
+     track_rate_FPIX	 .push_back( number_of_tracks_FPIX/run_time );
+     track_rate_BPIX	 .push_back( number_of_tracks_BPIX/run_time );
+     track_rate_TOB	 .push_back( number_of_tracks_TOB/run_time );
+     track_rate_TIB	 .push_back( number_of_tracks_TIB/run_time );
+     track_rate_TID	 .push_back( number_of_tracks_TID/run_time );
+     track_rate_TEC	 .push_back( number_of_tracks_TEC/run_time );
+     track_rate_TECP	 .push_back( number_of_tracks_TECP/run_time );
+     track_rate_TECM	 .push_back( number_of_tracks_TECM/run_time );
+     tracks	 	 .push_back( number_of_tracks );
+     tracks_bpix	 .push_back( number_of_tracks_BPIX );
+     tracks_fpix	 .push_back( number_of_tracks_FPIX );
+     tracks_pix	         .push_back( number_of_tracks_PIX );
+     tracks_tec	         .push_back( number_of_tracks_TECM );
+     total_tracks        += tracks[j];
+     bpix_tracks 	 += tracks_bpix[j];
+     fpix_tracks 	 += tracks_fpix[j];
+     pix_tracks 	 += tracks_pix[j];
+
+     track_rate_BPIX_layer1	 .push_back( number_of_tracks_BPIX_layer1/run_time );
+     track_rate_BPIX_layer2	 .push_back( number_of_tracks_BPIX_layer2/run_time );
+     track_rate_BPIX_layer3	 .push_back( number_of_tracks_BPIX_layer3/run_time );
+     track_rate_BPIX_layer4	 .push_back( number_of_tracks_BPIX_layer4/run_time );
+     track_rate_FPIX_disk1	 .push_back( number_of_tracks_FPIX_disk1/run_time );
+     track_rate_FPIX_disk2	 .push_back( number_of_tracks_FPIX_disk2/run_time );
+     track_rate_FPIX_disk3	 .push_back( number_of_tracks_FPIX_disk3/run_time );
+     track_rate_FPIX_disk1_plus	 .push_back( number_of_tracks_FPIX_disk1_plus/run_time );
+     track_rate_FPIX_disk1_minus .push_back( number_of_tracks_FPIX_disk1_minus/run_time );
+     track_rate_FPIX_disk2_plus	 .push_back( number_of_tracks_FPIX_disk2_plus/run_time );
+     track_rate_FPIX_disk2_minus .push_back( number_of_tracks_FPIX_disk2_minus/run_time );
+     track_rate_FPIX_disk3_plus	 .push_back( number_of_tracks_FPIX_disk3_plus/run_time );
+     track_rate_FPIX_disk3_minus .push_back( number_of_tracks_FPIX_disk3_minus/run_time );
+     
+     fprintf(pFile,"runnum :%-7.0lf, # of tracks :%-10.0lf, track rates :%-10.2lf\n",runNumber.at(j),tracks.at(j),track_rate.at(j));
+     track_rate_err	 	.push_back( sqrt(float(number_of_tracks))/run_time );
+     event_rate_err	 	.push_back( sqrt(float(number_of_events))/run_time );
+     track_rate_PIX_err 	.push_back( sqrt(float(number_of_tracks_PIX))/run_time );
+     track_rate_FPIX_err 	.push_back( sqrt(float(number_of_tracks_FPIX))/run_time );
+     track_rate_BPIX_err 	.push_back( sqrt(float(number_of_tracks_BPIX))/run_time );
+     track_rate_TOB_err 	.push_back( sqrt(float(number_of_tracks_TOB))/run_time );
+     track_rate_TIB_err 	.push_back( sqrt(float(number_of_tracks_TIB))/run_time );
+     track_rate_TID_err 	.push_back( sqrt(float(number_of_tracks_TID))/run_time );
+     track_rate_TEC_err 	.push_back( sqrt(float(number_of_tracks_TEC))/run_time );
+     track_rate_TECP_err 	.push_back( sqrt(float(number_of_tracks_TECP))/run_time );
+     track_rate_TECM_err 	.push_back( sqrt(float(number_of_tracks_TECM))/run_time );
+     
+     track_rate_BPIX_layer1_err 	.push_back( sqrt(float(number_of_tracks_BPIX_layer1))/run_time );
+     track_rate_BPIX_layer2_err 	.push_back( sqrt(float(number_of_tracks_BPIX_layer2))/run_time );
+     track_rate_BPIX_layer3_err 	.push_back( sqrt(float(number_of_tracks_BPIX_layer3))/run_time );
+     track_rate_BPIX_layer4_err 	.push_back( sqrt(float(number_of_tracks_BPIX_layer4))/run_time );
+     track_rate_FPIX_disk1_err        	.push_back( sqrt(float(number_of_tracks_FPIX_disk1))/run_time );
+     track_rate_FPIX_disk2_err        	.push_back( sqrt(float(number_of_tracks_FPIX_disk2))/run_time );
+     track_rate_FPIX_disk3_err        	.push_back( sqrt(float(number_of_tracks_FPIX_disk3))/run_time );
+     track_rate_FPIX_disk1_plus_err     .push_back( sqrt(float(number_of_tracks_FPIX_disk1_plus))/run_time );
+     track_rate_FPIX_disk1_minus_err    .push_back( sqrt(float(number_of_tracks_FPIX_disk1_minus))/run_time );
+     track_rate_FPIX_disk2_plus_err     .push_back( sqrt(float(number_of_tracks_FPIX_disk2_plus))/run_time );
+     track_rate_FPIX_disk2_minus_err    .push_back( sqrt(float(number_of_tracks_FPIX_disk2_minus))/run_time );
+     track_rate_FPIX_disk3_plus_err     .push_back( sqrt(float(number_of_tracks_FPIX_disk3_plus))/run_time );
+     track_rate_FPIX_disk3_minus_err    .push_back( sqrt(float(number_of_tracks_FPIX_disk3_minus))/run_time );
+     
+     runNumber_err.push_back(0);   
+    
+     j++;    
+   }
+   
+   fprintf(pFile,"\n\n");
+   fprintf(pFile,"##################################################\n");
+   fprintf(pFile,"    Some information on total number of tracks    \n");
+   fprintf(pFile,"##################################################\n");
+   fprintf(pFile,"Total # of tracks   : %-10.0lf\n",total_tracks);
+   fprintf(pFile,"# of tracks in BPIX : %-10.0lf\n",bpix_tracks);
+   fprintf(pFile,"# of tracks in FPIX : %-10.0lf\n",fpix_tracks);
+   fprintf(pFile,"# of tracks in PIX  : %-10.0lf\n",pix_tracks);
+   fprintf(pFile,"\n\n");
+
+   
+   //+++++++++++++++++++++++++++++       Make Directory     +++++++++++++++++++++++++++++++++++++
+   gSystem->Exec("mkdir -p Rate_Plots");
+   
+   //-----------------------------------    PLOTTING  -------------------------------------------
+   TCanvas c("c1","c1",604,82,856,836);    // Declare canvas
+   gStyle->SetOptStat(0);
+   c.Range(298434.4,-0.2989256,299381.3,2.010954);
+   c.SetFillColor(0);
+   c.SetBorderMode(0);
+   c.SetBorderSize(2);
+   c.SetTickx(1);
+   c.SetTicky(1);
+   c.SetGrid();
+   c.SetLeftMargin(0.1883886);
+   c.SetRightMargin(0.03909953);
+   c.SetTopMargin(0.0875817);
+   c.SetBottomMargin(0.1294118);
+   c.SetFrameLineWidth(3);
+   c.SetFrameBorderMode(0);
+
+   
+   //============  Text  =============//
+   TLatex top_right_Title = TLatex();
+   top_right_Title.SetTextFont(42);
+   top_right_Title.SetTextSize(0.03717);
+   
+   TLatex detector = TLatex();
+   detector.SetTextFont(62);
+   detector.SetTextSize(0.047);
+   
+   TVectorD  event_rate_VecD 		;
+   TVectorD  event_rate_err_VecD	;
+   TVectorD  track_rate_VecD 		;
+   TVectorD  track_rate_err_VecD	;
+   TVectorD  runNumber_VecD 		;
+   TVectorD  runNumber_err_VecD		;
+   TVectorD  track_rate_PIX_VecD 	;
+   TVectorD  track_rate_PIX_err_VecD 	;
+   TVectorD  track_rate_FPIX_VecD	;
+   TVectorD  track_rate_FPIX_err_VecD	;
+   TVectorD  track_rate_BPIX_VecD 	;
+   TVectorD  track_rate_BPIX_err_VecD	;
+   TVectorD  track_rate_TOB_VecD 	;
+   TVectorD  track_rate_TOB_err_VecD 	;
+   TVectorD  track_rate_TIB_VecD 	;
+   TVectorD  track_rate_TIB_err_VecD 	;
+   TVectorD  track_rate_TID_VecD 	;
+   TVectorD  track_rate_TID_err_VecD 	;
+   TVectorD  track_rate_TEC_VecD 	;
+   TVectorD  track_rate_TEC_err_VecD 	;
+   TVectorD  track_rate_TECP_VecD 	;
+   TVectorD  track_rate_TECP_err_VecD	;
+   TVectorD  track_rate_TECM_VecD 	;
+   TVectorD  track_rate_TECM_err_VecD	;
+
+   TVectorD  track_rate_BPIX_layer1_VecD 	;
+   TVectorD  track_rate_BPIX_layer1_err_VecD	;
+   TVectorD  track_rate_BPIX_layer2_VecD 	;
+   TVectorD  track_rate_BPIX_layer2_err_VecD	;
+   TVectorD  track_rate_BPIX_layer3_VecD 	;
+   TVectorD  track_rate_BPIX_layer3_err_VecD	;
+   TVectorD  track_rate_BPIX_layer4_VecD 	;
+   TVectorD  track_rate_BPIX_layer4_err_VecD	;
+   TVectorD  track_rate_FPIX_disk1_VecD 	;
+   TVectorD  track_rate_FPIX_disk1_err_VecD	;
+   TVectorD  track_rate_FPIX_disk2_VecD 	;
+   TVectorD  track_rate_FPIX_disk2_err_VecD	;
+   TVectorD  track_rate_FPIX_disk3_VecD 	;
+   TVectorD  track_rate_FPIX_disk3_err_VecD	;
+   TVectorD  track_rate_FPIX_disk1_plus_VecD 	;
+   TVectorD  track_rate_FPIX_disk1_plus_err_VecD	;
+   TVectorD  track_rate_FPIX_disk1_minus_VecD 	;
+   TVectorD  track_rate_FPIX_disk1_minus_err_VecD	;
+   TVectorD  track_rate_FPIX_disk2_plus_VecD 	;
+   TVectorD  track_rate_FPIX_disk2_plus_err_VecD	;
+   TVectorD  track_rate_FPIX_disk2_minus_VecD 	;
+   TVectorD  track_rate_FPIX_disk2_minus_err_VecD	;
+   TVectorD  track_rate_FPIX_disk3_plus_VecD 	;
+   TVectorD  track_rate_FPIX_disk3_plus_err_VecD	;
+   TVectorD  track_rate_FPIX_disk3_minus_VecD 	;
+   TVectorD  track_rate_FPIX_disk3_minus_err_VecD	;
+   
+   runNumber_VecD.Use(runNumber.size(),&(runNumber[0]));
+   runNumber_err_VecD.Use(runNumber_err.size(),&(runNumber_err[0]));
+   event_rate_VecD.Use(event_rate.size(),&(event_rate[0]));
+   event_rate_err_VecD.Use(event_rate_err.size(),&(event_rate_err[0]));
+
+   track_rate_VecD.Use(track_rate.size(),&(track_rate[0]));
+   track_rate_err_VecD.Use(track_rate_err.size(),&(track_rate_err[0]));
+
+   track_rate_PIX_VecD.Use(track_rate_PIX.size(),&(track_rate_PIX[0]));
+   track_rate_PIX_err_VecD.Use(track_rate_PIX_err.size(),&(track_rate_PIX_err[0]));
+   track_rate_FPIX_VecD.Use(track_rate_FPIX.size(),&(track_rate_FPIX[0]));
+   track_rate_FPIX_err_VecD.Use(track_rate_FPIX_err.size(),&(track_rate_FPIX_err[0]));
+   track_rate_BPIX_VecD.Use(track_rate_BPIX.size(),&(track_rate_BPIX[0]));
+   track_rate_BPIX_err_VecD.Use(track_rate_BPIX_err.size(),&(track_rate_BPIX_err[0]));
+   track_rate_TOB_VecD.Use(track_rate_TOB.size(),&(track_rate_TOB[0]));
+   track_rate_TOB_err_VecD.Use(track_rate_TOB_err.size(),&(track_rate_TOB_err[0]));
+   track_rate_TIB_VecD.Use(track_rate_TIB.size(),&(track_rate_TIB[0]));
+   track_rate_TIB_err_VecD.Use(track_rate_TIB_err.size(),&(track_rate_TIB_err[0]));
+   track_rate_TID_VecD.Use(track_rate_TID.size(),&(track_rate_TID[0]));
+   track_rate_TID_err_VecD.Use(track_rate_TID_err.size(),&(track_rate_TID_err[0]));
+   track_rate_TEC_VecD.Use(track_rate_TEC.size(),&(track_rate_TEC[0]));
+   track_rate_TEC_err_VecD.Use(track_rate_TEC_err.size(),&(track_rate_TEC_err[0]));
+   track_rate_TECP_VecD.Use(track_rate_TECP.size(),&(track_rate_TECP[0]));
+   track_rate_TECP_err_VecD.Use(track_rate_TECP_err.size(),&(track_rate_TECP_err[0]));
+   track_rate_TECM_VecD.Use(track_rate_TECM.size(),&(track_rate_TECM[0]));
+   track_rate_TECM_err_VecD.Use(track_rate_TECM_err.size(),&(track_rate_TECM_err[0]));
+
+   track_rate_BPIX_layer1_VecD.Use(track_rate_BPIX_layer1.size(),&(track_rate_BPIX_layer1[0]));
+   track_rate_BPIX_layer1_err_VecD.Use(track_rate_BPIX_layer1_err.size(),&(track_rate_BPIX_layer1_err[0]));
+   track_rate_BPIX_layer2_VecD.Use(track_rate_BPIX_layer2.size(),&(track_rate_BPIX_layer2[0]));
+   track_rate_BPIX_layer2_err_VecD.Use(track_rate_BPIX_layer2_err.size(),&(track_rate_BPIX_layer2_err[0]));
+   track_rate_BPIX_layer3_VecD.Use(track_rate_BPIX_layer3.size(),&(track_rate_BPIX_layer3[0]));
+   track_rate_BPIX_layer3_err_VecD.Use(track_rate_BPIX_layer3_err.size(),&(track_rate_BPIX_layer3_err[0]));
+   track_rate_BPIX_layer4_VecD.Use(track_rate_BPIX_layer4.size(),&(track_rate_BPIX_layer4[0]));
+   track_rate_BPIX_layer4_err_VecD.Use(track_rate_BPIX_layer4_err.size(),&(track_rate_BPIX_layer4_err[0]));
+   track_rate_FPIX_disk1_VecD.Use(track_rate_FPIX_disk1.size(),&(track_rate_FPIX_disk1[0]));
+   track_rate_FPIX_disk1_err_VecD.Use(track_rate_FPIX_disk1_err.size(),&(track_rate_FPIX_disk1_err[0]));
+   track_rate_FPIX_disk2_VecD.Use(track_rate_FPIX_disk2.size(),&(track_rate_FPIX_disk2[0]));
+   track_rate_FPIX_disk2_err_VecD.Use(track_rate_FPIX_disk2_err.size(),&(track_rate_FPIX_disk2_err[0]));
+   track_rate_FPIX_disk3_VecD.Use(track_rate_FPIX_disk3.size(),&(track_rate_FPIX_disk3[0]));
+   track_rate_FPIX_disk3_err_VecD.Use(track_rate_FPIX_disk3_err.size(),&(track_rate_FPIX_disk3_err[0]));
+   track_rate_FPIX_disk1_plus_VecD.Use(track_rate_FPIX_disk1_plus.size(),&(track_rate_FPIX_disk1_plus[0]));
+   track_rate_FPIX_disk1_plus_err_VecD.Use(track_rate_FPIX_disk1_plus_err.size(),&(track_rate_FPIX_disk1_plus_err[0]));
+   track_rate_FPIX_disk1_minus_VecD.Use(track_rate_FPIX_disk1_minus.size(),&(track_rate_FPIX_disk1_minus[0]));
+   track_rate_FPIX_disk1_minus_err_VecD.Use(track_rate_FPIX_disk1_minus_err.size(),&(track_rate_FPIX_disk1_minus_err[0]));
+   track_rate_FPIX_disk2_plus_VecD.Use(track_rate_FPIX_disk2_plus.size(),&(track_rate_FPIX_disk2_plus[0]));
+   track_rate_FPIX_disk2_plus_err_VecD.Use(track_rate_FPIX_disk2_plus_err.size(),&(track_rate_FPIX_disk2_plus_err[0]));
+   track_rate_FPIX_disk2_minus_VecD.Use(track_rate_FPIX_disk2_minus.size(),&(track_rate_FPIX_disk2_minus[0]));
+   track_rate_FPIX_disk2_minus_err_VecD.Use(track_rate_FPIX_disk2_minus_err.size(),&(track_rate_FPIX_disk2_minus_err[0]));
+   track_rate_FPIX_disk3_plus_VecD.Use(track_rate_FPIX_disk3_plus.size(),&(track_rate_FPIX_disk3_plus[0]));
+   track_rate_FPIX_disk3_plus_err_VecD.Use(track_rate_FPIX_disk3_plus_err.size(),&(track_rate_FPIX_disk3_plus_err[0]));
+   track_rate_FPIX_disk3_minus_VecD.Use(track_rate_FPIX_disk3_minus.size(),&(track_rate_FPIX_disk3_minus[0]));
+   track_rate_FPIX_disk3_minus_err_VecD.Use(track_rate_FPIX_disk3_minus_err.size(),&(track_rate_FPIX_disk3_minus_err[0]));
+   
+   //+++++++++++++++++++++++++++++  Overall event rate  +++++++++++++++++++++++++++++++++++++ 
+
+   TGraphErrors gr_event_rate(runNumber_VecD,event_rate_VecD,runNumber_err_VecD,event_rate_err_VecD);
+   gr_event_rate.GetXaxis()->SetTitle("Run Number");
+   gr_event_rate.GetXaxis()->SetLabelSize(0.04);
+   gr_event_rate.GetXaxis()->SetNoExponent();
+   gr_event_rate.GetXaxis()->SetNdivisions(5);
+   gr_event_rate.GetYaxis()->SetTitle("Event Rate (Hz)");
+   gr_event_rate.GetXaxis()->SetTitleSize(0.05);
+   gr_event_rate.GetYaxis()->SetLabelSize(0.05);
+   gr_event_rate.GetYaxis()->SetTitleSize(0.05);
+   gr_event_rate.SetMarkerStyle(20);
+   gr_event_rate.SetMarkerSize(1.4);
+   gr_event_rate.SetMarkerColor(kRed);
+   gr_event_rate.SetTitle("");
+   gr_event_rate.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "Event Rate");
+   c.SetGrid();
+   c.SaveAs("event_rate.png");
+   c.SaveAs("event_rate.pdf");
+   c.SaveAs("event_rate.C");
+   c.Clear();
+   gSystem->Exec("mv event_rate.png Rate_Plots");
+   gSystem->Exec("mv event_rate.pdf Rate_Plots");
+   gSystem->Exec("mv event_rate.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+   
+   
+   //++++++++++++++++++++++++++++++  Overall track rate  +++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate(runNumber_VecD,track_rate_VecD,runNumber_err_VecD,track_rate_err_VecD);
+   gr_track_rate.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate.GetXaxis()->SetNoExponent();
+   gr_track_rate.GetXaxis()->SetNdivisions(5);
+   gr_track_rate.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate.SetMarkerStyle(20);
+   gr_track_rate.SetMarkerSize(1.4);
+   gr_track_rate.SetMarkerColor(kRed);
+   gr_track_rate.SetTitle("");
+   gr_track_rate.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "Track Rate");
+   c.SetGrid();
+   c.SaveAs("track_rate.png");
+   c.SaveAs("track_rate.pdf");
+   c.SaveAs("track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv track_rate.png Rate_Plots");
+   gSystem->Exec("mv track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+   
+   //+++++++++++++++++++++++++++++++  Total Pixel track rate +++++++++++++++++++++++++++++++++++++++  
+   
+   TGraphErrors gr_track_rate_PIX(runNumber_VecD,track_rate_PIX_VecD,runNumber_err_VecD,track_rate_PIX_err_VecD);
+   gr_track_rate_PIX.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_PIX.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_PIX.GetXaxis()->SetNoExponent();
+   gr_track_rate_PIX.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_PIX.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_PIX.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_PIX.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_PIX.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_PIX.SetMarkerStyle(20);
+   gr_track_rate_PIX.SetMarkerSize(1.4);
+   gr_track_rate_PIX.SetMarkerColor(2);
+   gr_track_rate_PIX.SetTitle("");
+   gr_track_rate_PIX.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "PIXEL");
+   c.SetGrid();
+   c.SaveAs("pixel_track_rate.png");
+   c.SaveAs("pixel_track_rate.pdf");
+   c.SaveAs("pixel_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv pixel_track_rate.png Rate_Plots");
+   gSystem->Exec("mv pixel_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv pixel_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+   
+   //++++++++++++++++++++++++++++++++  FPIX track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX(runNumber_VecD,track_rate_FPIX_VecD,runNumber_err_VecD,track_rate_FPIX_err_VecD);
+   gr_track_rate_FPIX.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX.SetMarkerStyle(20);
+   gr_track_rate_FPIX.SetMarkerSize(1.4);
+   gr_track_rate_FPIX.SetMarkerColor(kRed);
+   gr_track_rate_FPIX.SetTitle("");
+   gr_track_rate_FPIX.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate.png");
+   c.SaveAs("fpix_track_rate.pdf");
+   c.SaveAs("fpix_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  FPIX Disk1 track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk1(runNumber_VecD,track_rate_FPIX_disk1_VecD,runNumber_err_VecD,track_rate_FPIX_disk1_err_VecD);
+   gr_track_rate_FPIX_disk1.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk1.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk1.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk1.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk1.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk1.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk1.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk1.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk1.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk1.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk1.SetMarkerColor(kRed);
+   gr_track_rate_FPIX_disk1.SetTitle("");
+   gr_track_rate_FPIX_disk1.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 1");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk1.png");
+   c.SaveAs("fpix_track_rate_disk1.pdf");
+   c.SaveAs("fpix_track_rate_disk1.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk1.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk1.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk1.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  FPIX Disk2 track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk2(runNumber_VecD,track_rate_FPIX_disk2_VecD,runNumber_err_VecD,track_rate_FPIX_disk2_err_VecD);
+   gr_track_rate_FPIX_disk2.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk2.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk2.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk2.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk2.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk2.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk2.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk2.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk2.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk2.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk2.SetMarkerColor(kRed);
+   gr_track_rate_FPIX_disk2.SetTitle("");
+   gr_track_rate_FPIX_disk2.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 2");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk2.png");
+   c.SaveAs("fpix_track_rate_disk2.pdf");
+   c.SaveAs("fpix_track_rate_disk2.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk2.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk2.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk2.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+   
+    //++++++++++++++++++++++++++++++++  FPIX Disk3 track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk3(runNumber_VecD,track_rate_FPIX_disk3_VecD,runNumber_err_VecD,track_rate_FPIX_disk3_err_VecD);
+   gr_track_rate_FPIX_disk3.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk3.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk3.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk3.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk3.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk3.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk3.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk3.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk3.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk3.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk3.SetMarkerColor(kRed);
+   gr_track_rate_FPIX_disk3.SetTitle("");
+   gr_track_rate_FPIX_disk3.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 3");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk3.png");
+   c.SaveAs("fpix_track_rate_disk3.pdf");
+   c.SaveAs("fpix_track_rate_disk3.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk3.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk3.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk3.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  FPIX Disk1+ track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk1_plus(runNumber_VecD,track_rate_FPIX_disk1_plus_VecD,runNumber_err_VecD,track_rate_FPIX_disk1_plus_err_VecD);
+   gr_track_rate_FPIX_disk1_plus.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk1_plus.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk1_plus.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk1_plus.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk1_plus.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk1_plus.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk1_plus.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk1_plus.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk1_plus.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk1_plus.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk1_plus.SetMarkerColor(kRed);
+   gr_track_rate_FPIX_disk1_plus.SetTitle("");
+   gr_track_rate_FPIX_disk1_plus.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 1+");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk1_plus.png");
+   c.SaveAs("fpix_track_rate_disk1_plus.C");
+   c.SaveAs("fpix_track_rate_disk1_plus.pdf");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk1_plus.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk1_plus.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk1_plus.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  FPIX Disk1- track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk1_minus(runNumber_VecD,track_rate_FPIX_disk1_minus_VecD,runNumber_err_VecD,track_rate_FPIX_disk1_minus_err_VecD);
+   gr_track_rate_FPIX_disk1_minus.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk1_minus.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk1_minus.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk1_minus.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk1_minus.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk1_minus.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk1_minus.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk1_minus.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk1_minus.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk1_minus.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk1_minus.SetMarkerColor(kRed);
+   gr_track_rate_FPIX_disk1_minus.SetTitle("");
+   gr_track_rate_FPIX_disk1_minus.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 1-");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk1_minus.png");
+   c.SaveAs("fpix_track_rate_disk1_minus.pdf");
+   c.SaveAs("fpix_track_rate_disk1_minus.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk1_minus.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk1_minus.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk1_minus.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  FPIX Disk2+ track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk2_plus(runNumber_VecD,track_rate_FPIX_disk2_plus_VecD,runNumber_err_VecD,track_rate_FPIX_disk2_plus_err_VecD);
+   gr_track_rate_FPIX_disk2_plus.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk2_plus.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk2_plus.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk2_plus.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk2_plus.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk2_plus.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk2_plus.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk2_plus.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk2_plus.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk2_plus.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk2_plus.SetMarkerColor(kRed);
+   gr_track_rate_FPIX_disk2_plus.SetTitle("");
+   gr_track_rate_FPIX_disk2_plus.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 2+");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk2_plus.png");
+   c.SaveAs("fpix_track_rate_disk2_plus.pdf");
+   c.SaveAs("fpix_track_rate_disk2_plus.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk2_plus.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk2_plus.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk2_plus.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  FPIX Disk2- track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk2_minus(runNumber_VecD,track_rate_FPIX_disk2_minus_VecD,runNumber_err_VecD,track_rate_FPIX_disk2_minus_err_VecD);
+   gr_track_rate_FPIX_disk2_minus.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk2_minus.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk2_minus.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk2_minus.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk2_minus.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk2_minus.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk2_minus.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk2_minus.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk2_minus.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk2_minus.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk2_minus.SetMarkerColor(2);
+   gr_track_rate_FPIX_disk2_minus.SetTitle("");
+   gr_track_rate_FPIX_disk2_minus.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 2-");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk2_minus.png");
+   c.SaveAs("fpix_track_rate_disk2_minus.pdf");
+   c.SaveAs("fpix_track_rate_disk2_minus.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk2_minus.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk2_minus.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk2_minus.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  FPIX Disk3+ track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk3_plus(runNumber_VecD,track_rate_FPIX_disk3_plus_VecD,runNumber_err_VecD,track_rate_FPIX_disk3_plus_err_VecD);
+   gr_track_rate_FPIX_disk3_plus.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk3_plus.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk3_plus.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk3_plus.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk3_plus.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk3_plus.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk3_plus.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk3_plus.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk3_plus.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk3_plus.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk3_plus.SetMarkerColor(kRed);
+   gr_track_rate_FPIX_disk3_plus.SetTitle("");
+   gr_track_rate_FPIX_disk3_plus.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 3+");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk3_plus.png");
+   c.SaveAs("fpix_track_rate_disk3_plus.pdf");
+   c.SaveAs("fpix_track_rate_disk3_plus.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk3_plus.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk3_plus.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk3_plus.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  FPIX Disk3- track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_FPIX_disk3_minus(runNumber_VecD,track_rate_FPIX_disk3_minus_VecD,runNumber_err_VecD,track_rate_FPIX_disk3_minus_err_VecD);
+   gr_track_rate_FPIX_disk3_minus.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_FPIX_disk3_minus.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_FPIX_disk3_minus.GetXaxis()->SetNoExponent();
+   gr_track_rate_FPIX_disk3_minus.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_FPIX_disk3_minus.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_FPIX_disk3_minus.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk3_minus.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_FPIX_disk3_minus.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_FPIX_disk3_minus.SetMarkerStyle(20);
+   gr_track_rate_FPIX_disk3_minus.SetMarkerSize(1.4);
+   gr_track_rate_FPIX_disk3_minus.SetMarkerColor(2);
+   gr_track_rate_FPIX_disk3_minus.SetTitle("");
+   gr_track_rate_FPIX_disk3_minus.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "FPIX disk 3-");
+   c.SetGrid();
+   c.SaveAs("fpix_track_rate_disk3_minus.png");
+   c.SaveAs("fpix_track_rate_disk3_minus.pdf");
+   c.SaveAs("fpix_track_rate_disk3_minus.C");
+   c.Clear();
+   gSystem->Exec("mv fpix_track_rate_disk3_minus.png Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk3_minus.pdf Rate_Plots");
+   gSystem->Exec("mv fpix_track_rate_disk3_minus.C Rate_Plots");
+   //-----------------------------------------------------------------------------------------------
+        
+   //++++++++++++++++++++++++++++++++  BPIX track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+
+   TGraphErrors gr_track_rate_BPIX(runNumber_VecD,track_rate_BPIX_VecD,runNumber_err_VecD,track_rate_BPIX_err_VecD);
+   gr_track_rate_BPIX.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_BPIX.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_BPIX.GetXaxis()->SetNoExponent();
+   gr_track_rate_BPIX.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_BPIX.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_BPIX.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_BPIX.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX.SetMarkerStyle(20);
+   gr_track_rate_BPIX.SetMarkerSize(1.4);
+   gr_track_rate_BPIX.SetMarkerColor(2);
+   gr_track_rate_BPIX.SetTitle("");
+   gr_track_rate_BPIX.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "BPIX");
+   c.SetGrid();
+   c.SaveAs("bpix_track_rate.png");
+   c.SaveAs("bpix_track_rate.pdf");
+   c.SaveAs("bpix_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv bpix_track_rate.png Rate_Plots");
+   gSystem->Exec("mv bpix_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv bpix_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  BPIX layer 1 track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_BPIX_layer1(runNumber_VecD,track_rate_BPIX_layer1_VecD,runNumber_err_VecD,track_rate_BPIX_layer1_err_VecD);
+   gr_track_rate_BPIX_layer1.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_BPIX_layer1.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_BPIX_layer1.GetXaxis()->SetNoExponent();
+   gr_track_rate_BPIX_layer1.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_BPIX_layer1.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_BPIX_layer1.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX_layer1.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_BPIX_layer1.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX_layer1.SetMarkerStyle(20);
+   gr_track_rate_BPIX_layer1.SetMarkerSize(1.4);
+   gr_track_rate_BPIX_layer1.SetMarkerColor(2);
+   gr_track_rate_BPIX_layer1.SetTitle("");
+   gr_track_rate_BPIX_layer1.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "BPIX layer 1");
+   c.SetGrid();
+   c.SaveAs("bpix_layer1_track_rate.png");
+   c.SaveAs("bpix_layer1_track_rate.pdf");
+   c.SaveAs("bpix_layer1_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv bpix_layer1_track_rate.png Rate_Plots");
+   gSystem->Exec("mv bpix_layer1_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv bpix_layer1_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  BPIX layer 2 track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_BPIX_layer2(runNumber_VecD,track_rate_BPIX_layer2_VecD,runNumber_err_VecD,track_rate_BPIX_layer2_err_VecD);
+   gr_track_rate_BPIX_layer2.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_BPIX_layer2.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_BPIX_layer2.GetXaxis()->SetNoExponent();
+   gr_track_rate_BPIX_layer2.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_BPIX_layer2.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_BPIX_layer2.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX_layer2.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_BPIX_layer2.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX_layer2.SetMarkerStyle(20);
+   gr_track_rate_BPIX_layer2.SetMarkerSize(1.4);
+   gr_track_rate_BPIX_layer2.SetMarkerColor(2);
+   gr_track_rate_BPIX_layer2.SetTitle("");
+   gr_track_rate_BPIX_layer2.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "BPIX layer 2");
+   c.SetGrid();
+   c.SaveAs("bpix_layer2_track_rate.png");
+   c.SaveAs("bpix_layer2_track_rate.pdf");
+   c.SaveAs("bpix_layer2_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv bpix_layer2_track_rate.png Rate_Plots");
+   gSystem->Exec("mv bpix_layer2_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv bpix_layer2_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+
+   //++++++++++++++++++++++++++++++++  BPIX layer 3 track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_BPIX_layer3(runNumber_VecD,track_rate_BPIX_layer3_VecD,runNumber_err_VecD,track_rate_BPIX_layer3_err_VecD);
+   gr_track_rate_BPIX_layer3.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_BPIX_layer3.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_BPIX_layer3.GetXaxis()->SetNoExponent();
+   gr_track_rate_BPIX_layer3.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_BPIX_layer3.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_BPIX_layer3.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX_layer3.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_BPIX_layer3.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX_layer3.SetMarkerStyle(20);
+   gr_track_rate_BPIX_layer3.SetMarkerSize(1.4);
+   gr_track_rate_BPIX_layer3.SetMarkerColor(2);
+   gr_track_rate_BPIX_layer3.SetTitle("");
+   gr_track_rate_BPIX_layer3.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "BPIX layer 3");
+   c.SetGrid();
+   c.SaveAs("bpix_layer3_track_rate.png");
+   c.SaveAs("bpix_layer3_track_rate.pdf");
+   c.SaveAs("bpix_layer3_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv bpix_layer3_track_rate.png Rate_Plots");
+   gSystem->Exec("mv bpix_layer3_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv bpix_layer3_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+   
+   //++++++++++++++++++++++++++++++++  BPIX layer 4 track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_BPIX_layer4(runNumber_VecD,track_rate_BPIX_layer4_VecD,runNumber_err_VecD,track_rate_BPIX_layer4_err_VecD);
+   gr_track_rate_BPIX_layer4.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_BPIX_layer4.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_BPIX_layer4.GetXaxis()->SetNoExponent();
+   gr_track_rate_BPIX_layer4.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_BPIX_layer4.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_BPIX_layer4.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX_layer4.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_BPIX_layer4.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_BPIX_layer4.SetMarkerStyle(20);
+   gr_track_rate_BPIX_layer4.SetMarkerSize(1.4);
+   gr_track_rate_BPIX_layer4.SetMarkerColor(2);
+   gr_track_rate_BPIX_layer4.SetTitle("");
+   gr_track_rate_BPIX_layer4.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "BPIX layer 4");
+   c.SetGrid();
+   c.SaveAs("bpix_layer4_track_rate.png");
+   c.SaveAs("bpix_layer4_track_rate.pdf");
+   c.SaveAs("bpix_layer4_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv bpix_layer4_track_rate.png Rate_Plots");
+   gSystem->Exec("mv bpix_layer4_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv bpix_layer4_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+   
+   //++++++++++++++++++++++++++++++++  TOB track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_TOB(runNumber_VecD,track_rate_TOB_VecD,runNumber_err_VecD,track_rate_TOB_err_VecD);
+   gr_track_rate_TOB.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_TOB.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_TOB.GetXaxis()->SetNoExponent();
+   gr_track_rate_TOB.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_TOB.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_TOB.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_TOB.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_TOB.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_TOB.SetMarkerStyle(20);
+   gr_track_rate_TOB.SetMarkerSize(1.4);
+   gr_track_rate_TOB.SetMarkerColor(2);
+   gr_track_rate_TOB.SetTitle("");
+   gr_track_rate_TOB.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "TOB");
+   c.SetGrid();
+   c.SaveAs("tob_track_rate.png");
+   c.SaveAs("tob_track_rate.pdf");
+   c.SaveAs("tob_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv tob_track_rate.png Rate_Plots");
+   gSystem->Exec("mv tob_track_rate.C Rate_Plots");
+   gSystem->Exec("mv tob_track_rate.pdf Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+   
+   
+   //++++++++++++++++++++++++++++++++  TIB track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_TIB(runNumber_VecD,track_rate_TIB_VecD,runNumber_err_VecD,track_rate_TIB_err_VecD);
+   gr_track_rate_TIB.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_TIB.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_TIB.GetXaxis()->SetNoExponent();
+   gr_track_rate_TIB.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_TIB.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_TIB.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_TIB.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_TIB.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_TIB.SetMarkerStyle(20);
+   gr_track_rate_TIB.SetMarkerSize(1.4);
+   gr_track_rate_TIB.SetMarkerColor(2);
+   gr_track_rate_TIB.SetTitle("");
+   gr_track_rate_TIB.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "TIB");
+   c.SetGrid();
+   c.SaveAs("tib_track_rate.png");
+   c.SaveAs("tib_track_rate.pdf");
+   c.SaveAs("tib_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv tib_track_rate.png Rate_Plots");
+   gSystem->Exec("mv tib_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv tib_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+   
+   
+   //++++++++++++++++++++++++++++++++  TID track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_TID(runNumber_VecD,track_rate_TID_VecD,runNumber_err_VecD,track_rate_TID_err_VecD);
+   gr_track_rate_TID.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_TID.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_TID.GetXaxis()->SetNoExponent();
+   gr_track_rate_TID.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_TID.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_TID.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_TID.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_TID.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_TID.SetMarkerStyle(20);
+   gr_track_rate_TID.SetMarkerSize(1.4);
+   gr_track_rate_TID.SetMarkerColor(2);
+   gr_track_rate_TID.SetTitle("");
+   gr_track_rate_TID.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "TID");
+   c.SetGrid();
+   c.SaveAs("tid_track_rate.png");
+   c.SaveAs("tid_track_rate.pdf");
+   c.SaveAs("tid_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv tid_track_rate.png Rate_Plots");
+   gSystem->Exec("mv tid_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv tid_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+   
+   
+   //++++++++++++++++++++++++++++++++  Total TEC track rate  ++++++++++++++++++++++++++++++++++++++++++++ 
+   
+   TGraphErrors gr_track_rate_TEC(runNumber_VecD,track_rate_TEC_VecD,runNumber_err_VecD,track_rate_TEC_err_VecD);
+   gr_track_rate_TEC.GetXaxis()->SetTitle("Run Number");
+   gr_track_rate_TEC.GetXaxis()->SetLabelSize(0.04);
+   gr_track_rate_TEC.GetXaxis()->SetNoExponent();
+   gr_track_rate_TEC.GetXaxis()->SetNdivisions(5);
+   gr_track_rate_TEC.GetYaxis()->SetTitle("Track Rate (Hz)");
+   gr_track_rate_TEC.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_TEC.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_TEC.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_TEC.GetXaxis()->SetTitleSize(0.05);
+   gr_track_rate_TEC.GetYaxis()->SetLabelSize(0.05);
+   gr_track_rate_TEC.GetYaxis()->SetTitleSize(0.05);
+   gr_track_rate_TEC.SetMarkerStyle(20);
+   gr_track_rate_TEC.SetMarkerSize(1.4);
+   gr_track_rate_TEC.SetMarkerColor(kRed);
+   gr_track_rate_TEC.SetTitle("");
+   gr_track_rate_TEC.Draw("AP");
+   top_right_Title.DrawLatexNDC(0.685, 0.94, "cosmic rays (2018)"); 
+   detector.DrawLatexNDC(0.23, 0.83, "TEC");
+   c.SetGrid();
+   c.SaveAs("tec_track_rate.png");
+   c.SaveAs("tec_track_rate.pdf");
+   c.SaveAs("tec_track_rate.C");
+   c.Clear();
+   gSystem->Exec("mv tec_track_rate.png Rate_Plots");
+   gSystem->Exec("mv tec_track_rate.pdf Rate_Plots");
+   gSystem->Exec("mv tec_track_rate.C Rate_Plots");
+   
+   //-----------------------------------------------------------------------------------------------
+    
+   c.Close();
+
+   
+   //-----------------------------------------------------------------------------------------------
+   //					Weighted Mean calculation
+   //-----------------------------------------------------------------------------------------------
+   
+   
+   double total_weight		= 0;
+   double weighted_mean_track_rate;
+   double weighted_mean_track_rate_TEC;
+   double weighted_mean_track_rate_TOB;
+   double weighted_mean_track_rate_TIB;
+   double weighted_mean_track_rate_TID;
+   double weighted_mean_track_rate_FPIX;
+   double weighted_mean_track_rate_BPIX;
+   double weighted_mean_track_rate_PIX;
+   double weighted_mean_track_rate_BPIX_layer1;
+   double weighted_mean_track_rate_BPIX_layer2;
+   double weighted_mean_track_rate_BPIX_layer3;
+   double weighted_mean_track_rate_BPIX_layer4;
+   double weighted_mean_track_rate_FPIX_disk1;
+   double weighted_mean_track_rate_FPIX_disk2;
+   double weighted_mean_track_rate_FPIX_disk3;
+   double weighted_mean_track_rate_FPIX_disk1_plus;
+   double weighted_mean_track_rate_FPIX_disk2_plus;
+   double weighted_mean_track_rate_FPIX_disk3_plus;
+   double weighted_mean_track_rate_FPIX_disk1_minus;
+   double weighted_mean_track_rate_FPIX_disk2_minus;
+   double weighted_mean_track_rate_FPIX_disk3_minus;
+   double weighted_mean_event_rate;
+   
+   for (int k = 0; k < j; k++)
+     {
+       weight.push_back( tracks.at(k)/total_tracks );
+       fprintf(pFile,"%i Run \t Tracks: %f \t Weight: %lf \t Events: %f \t EventRate: %lf \n",k,tracks.at(k),weight.at(k),events.at(k), event_rate.at(k));
+     }
+
+   fprintf(pFile,"\n\n");		
+   fprintf(pFile,"##################################################\n");	
+   fprintf(pFile,"               Weight per Subdetector             \n");	
+   fprintf(pFile,"##################################################\n");
+   
+   for (int a = 0; a < j ; a++)
+     {
+       weighted_mean_track_rate 		+= track_rate.at(a)     * weight.at(a) ; 		
+       weighted_mean_track_rate_TEC 		+= track_rate_TEC.at(a) * weight.at(a) ; 	
+       weighted_mean_track_rate_TOB 		+= track_rate_TOB.at(a) * weight.at(a) ; 	
+       weighted_mean_track_rate_TIB 		+= track_rate_TIB.at(a) * weight.at(a) ;	
+       weighted_mean_track_rate_TID 		+= track_rate_TID.at(a) * weight.at(a) ;	
+       weighted_mean_track_rate_FPIX     	+= track_rate_FPIX.at(a)* weight.at(a) ;	
+       weighted_mean_track_rate_BPIX    	+= track_rate_BPIX.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_PIX      	+= track_rate_PIX.at(a) * weight.at(a) ; 
+       weighted_mean_event_rate 		+= event_rate.at(a)     * weight.at(a) ; 		
+       total_weight			    	+= weight.at(a) ;
+
+       weighted_mean_track_rate_BPIX_layer1       	+= track_rate_BPIX_layer1.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_BPIX_layer2       	+= track_rate_BPIX_layer2.at(a)* weight.at(a) ; 
+       weighted_mean_track_rate_BPIX_layer3      	+= track_rate_BPIX_layer3.at(a)* weight.at(a) ; 
+       weighted_mean_track_rate_BPIX_layer4      	+= track_rate_BPIX_layer4.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk1     	        += track_rate_FPIX_disk1.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk2       	+= track_rate_FPIX_disk2.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk3        	+= track_rate_FPIX_disk3.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk1_plus         += track_rate_FPIX_disk1_plus.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk2_plus         += track_rate_FPIX_disk2_plus.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk3_plus         += track_rate_FPIX_disk3_plus.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk1_minus 	+= track_rate_FPIX_disk1_minus.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk2_minus 	+= track_rate_FPIX_disk2_minus.at(a)* weight.at(a) ;
+       weighted_mean_track_rate_FPIX_disk3_minus     	+= track_rate_FPIX_disk3_minus.at(a)* weight.at(a) ;
+       
+       fprintf(pFile,"Total # of tracks   : %-10.0lf\n",total_tracks);
+       fprintf(pFile,"# of tracks in BPIX : %-10.0lf\n",bpix_tracks);
+       fprintf(pFile,"# of tracks in FPIX : %-10.0lf\n",fpix_tracks);       
+       fprintf(pFile,"Track Rate BPIX %i event  : %lf\n",a,track_rate_BPIX.at(a));       
+       fprintf(pFile,"Track Rate FPIX %i event  : %lf\n",a,track_rate_FPIX.at(a));       
+       fprintf(pFile,"No of total tracks in %i event  : %-10.0lf\n",a,tracks.at(a));       
+       fprintf(pFile,"No of BPIX tracks in %i event  : %-10.0lf\n",a,tracks_bpix.at(a));       
+       fprintf(pFile,"# Weight for %i RunNumber : %lf\n",a,weight.at(a));                  
+     }
+
+   fprintf(pFile,"Weighted mean for Event Rate : %lf\n",weighted_mean_event_rate );	
+   fprintf(pFile,"Weighted mean for Total Track Rate : %lf\n",weighted_mean_track_rate );   
+   fprintf(pFile,"Weighted mean for BPIX Track Rate : %lf\n",weighted_mean_track_rate_BPIX );   
+   fprintf(pFile,"Weighted mean for FPIX Track Rate : %lf\n",weighted_mean_track_rate_FPIX );   
+   fprintf(pFile,"Weighted mean for TIB Track Rate: %lf\n",weighted_mean_track_rate_TIB );   
+   fprintf(pFile,"Weighted mean for TOB Track Rate: %lf\n",weighted_mean_track_rate_TOB );   
+   fprintf(pFile,"Weighted mean for TID Track Rate: %lf\n",weighted_mean_track_rate_TID );   
+   fprintf(pFile,"Weighted mean for TEC Track Rate: %lf\n",weighted_mean_track_rate_TEC );   
+   fprintf(pFile,"Total Weight : %lf\n",total_weight );
+   
+   fclose (pFile);
+   
+   //-----------------------------------------------------------------------------------------------
+   //			Summary Plot for track rate in each Subdetector				 
+   //-----------------------------------------------------------------------------------------------
+   
+   //  TCanvas *canvas = new TCanvas("canvas", "canvas",372,57,856,842);
+   TCanvas *canvas = new TCanvas("canvas", "canvas",324,57,953,866);
+   //canvas->Range(-1.553285,-0.7217677,8.420438,5.067103);
+   canvas->SetFillColor(0);
+   canvas->SetBorderMode(0);
+   canvas->SetBorderSize(2);
+   canvas->SetGridx();
+   canvas->SetGridy();
+   canvas->SetTickx(1);
+   canvas->SetTicky(1);
+   /* canvas->SetLeftMargin(0.1557377);
+   canvas->SetRightMargin(0.04215457);
+   canvas->SetBottomMargin(0.1246819);
+   */
+   canvas->SetLeftMargin(0.1608833);
+   canvas->SetRightMargin(0.05152471);
+   
+   canvas->SetFrameLineWidth(3);
+   canvas->SetFrameBorderMode(0);
+   canvas->SetFrameLineWidth(3);
+   canvas->SetFrameBorderMode(0);
+     
+   TH1F h1b("h1b","Rate Summary",8,0,8);
+   h1b.SetFillColor(kBlue);
+   h1b.SetBarWidth(0.6);
+   h1b.SetBarOffset(0.25);
+   // h1b.SetMaximum(5);
+   h1b.SetStats(0);
+   h1b.GetXaxis()->SetLabelFont(42);
+   h1b.GetXaxis()->SetLabelOffset(0.012);
+   h1b.GetXaxis()->SetLabelSize(0.06);
+   h1b.GetXaxis()->SetTitleSize(0.05);
+   h1b.GetXaxis()->SetTitleFont(42);
+   h1b.GetYaxis()->SetTitle("Average Rate (Hz)");
+   h1b.GetYaxis()->SetLabelFont(42);
+   h1b.GetYaxis()->SetLabelSize(0.05);
+   h1b.GetYaxis()->SetTitleSize(0.05);
+   h1b.GetYaxis()->SetTitleOffset(0);
+   
+   gStyle->SetPaintTextFormat("1.2f");
+   h1b.LabelsOption("d");
+   //h1b.SetLabelSize(0.05);
+   
+   TLatex tex;
+   tex.DrawLatexNDC(0.4,0.8,"Rate Summary");
+   tex.SetLineWidth(2);
+   tex.SetTextFont(62);
+   tex.Draw();
+   
+   Bar_Ytitle[0] = weighted_mean_event_rate;     
+   Bar_Ytitle[1] = weighted_mean_track_rate;     
+   Bar_Ytitle[2] = weighted_mean_track_rate_FPIX;     
+   Bar_Ytitle[3] = weighted_mean_track_rate_BPIX; 
+   Bar_Ytitle[4] = weighted_mean_track_rate_TIB; 
+   Bar_Ytitle[5] = weighted_mean_track_rate_TID;
+   Bar_Ytitle[6] = weighted_mean_track_rate_TOB; 
+   Bar_Ytitle[7] = weighted_mean_track_rate_TEC;
+   
+   for (int i=1; i<=8; i++)
+     {
+       h1b.SetBinContent(i, Bar_Ytitle[i-1]);
+       h1b.GetXaxis()->SetBinLabel(i,Bar_Xtitle[i-1].c_str());
+       // h1b.GetXaxis()->SetBinLabel();
+     }
+      
+   h1b.Draw("bTEXT");
+   TString summary_chart_title = "SummaryChart";
+   TString Format[3] = {"png","pdf","C"};
+   
+   for(int i =0; i<3 ; i++)
+     {
+       TString filename = summary_chart_title + "." + Format[i]; 
+       canvas->SaveAs(filename.Data());
+       TString mv_cmd = "mv " + filename + " Rate_Plots";
+       gSystem->Exec(mv_cmd.Data());
+     }
+   canvas->Clear();
+
+   //-----------------------------------------------------------------------------------------------
+   //			Summary Plot for track rate in BPIX			 
+   //-----------------------------------------------------------------------------------------------
+     
+   TH1F hb_BPIX("hb_BPIX","Rate Summary BPIX",6,0,6);
+   hb_BPIX.SetFillColor(6);
+   hb_BPIX.SetBarWidth(0.6);
+   hb_BPIX.SetBarOffset(0.25);
+   hb_BPIX.SetStats(0);
+   hb_BPIX.GetXaxis()->SetLabelFont(42);
+   hb_BPIX.GetXaxis()->SetLabelOffset(0.012);
+   hb_BPIX.GetXaxis()->SetLabelSize(0.06);
+   hb_BPIX.GetXaxis()->SetTitleSize(0.05);
+   hb_BPIX.GetXaxis()->SetTitleFont(42);
+   hb_BPIX.GetYaxis()->SetTitle("Average Rate (Hz)");
+   hb_BPIX.GetYaxis()->SetLabelFont(42);
+   hb_BPIX.GetYaxis()->SetLabelSize(0.05);
+   hb_BPIX.GetYaxis()->SetTitleSize(0.05);
+   hb_BPIX.GetYaxis()->SetTitleOffset(0);
+   
+   gStyle->SetPaintTextFormat("1.2f");
+   //hb_BPIX.LabelsOption("d");
+   //hb_BPIX.SetLabelSize(0.05);
+   
+   tex.DrawLatexNDC(0.4,0.8,"Rate Summary BPIX");
+   tex.SetLineWidth(2);
+   tex.SetTextFont(62);
+   tex.Draw();
+
+   Bar_Ytitle_BPIX[0] = weighted_mean_track_rate_PIX;
+   Bar_Ytitle_BPIX[1] = weighted_mean_track_rate_BPIX;
+   Bar_Ytitle_BPIX[2] = weighted_mean_track_rate_BPIX_layer1;     
+   Bar_Ytitle_BPIX[3] = weighted_mean_track_rate_BPIX_layer2;   
+   Bar_Ytitle_BPIX[4] = weighted_mean_track_rate_BPIX_layer3;
+   Bar_Ytitle_BPIX[5] = weighted_mean_track_rate_BPIX_layer4;
+    
+   for (int i=1; i<=6; i++)
+     {
+       hb_BPIX.SetBinContent(i, Bar_Ytitle_BPIX[i-1]);
+       hb_BPIX.GetXaxis()->SetBinLabel(i,Bar_Xtitle_BPIX[i-1].c_str());
+       // hb_BPIX.GetXaxis()->SetBinLabel();
+     }
+   
+   
+   hb_BPIX.Draw("bTEXT");
+   summary_chart_title = "SummaryChart_BPIX";
+   
+   for(int i =0; i<3 ; i++)
+     {
+       TString filename= summary_chart_title + "." + Format[i]; 
+       canvas->SaveAs(filename.Data());
+       TString mv_cmd = "mv " + filename + " Rate_Plots";
+       gSystem->Exec(mv_cmd.Data());
+     }
+   canvas->Clear();
+
+   //-----------------------------------------------------------------------------------------------
+   //			Summary Plot for track rate in FPIX			 
+   //-----------------------------------------------------------------------------------------------
+     
+   TH1F hb_FPIX("hb_FPIX","Rate Summary FPIX",11,0,11);
+   hb_FPIX.SetFillColor(6);
+   hb_FPIX.SetBarWidth(0.6);
+   hb_FPIX.SetBarOffset(0.25);
+   hb_FPIX.SetStats(0);
+   hb_FPIX.GetXaxis()->SetLabelFont(42);
+   hb_FPIX.GetXaxis()->SetLabelOffset(0.012);
+   hb_FPIX.GetXaxis()->SetLabelSize(0.04);
+   hb_FPIX.GetXaxis()->SetTitleSize(0.05);
+   hb_FPIX.GetXaxis()->SetTitleFont(42);
+   hb_FPIX.GetYaxis()->SetTitle("Average Rate (Hz)");
+   hb_FPIX.GetYaxis()->SetLabelFont(42);
+   hb_FPIX.GetYaxis()->SetLabelSize(0.05);
+   hb_FPIX.GetYaxis()->SetTitleSize(0.05);
+   hb_FPIX.GetYaxis()->SetTitleOffset(0);
+   
+   gStyle->SetPaintTextFormat("1.3f");
+   //hb_FPIX.LabelsOption("d");
+   //hb_FPIX.SetLabelSize(0.05);
+   
+   tex.DrawLatexNDC(0.4,0.8,"Rate Summary FPIX");
+   tex.SetLineWidth(2);
+   tex.SetTextFont(62);
+   tex.Draw();
+
+   Bar_Ytitle_FPIX[0] = weighted_mean_track_rate_PIX;
+   Bar_Ytitle_FPIX[1] = weighted_mean_track_rate_FPIX;
+   Bar_Ytitle_FPIX[2] = weighted_mean_track_rate_FPIX_disk1;     
+   Bar_Ytitle_FPIX[3] = weighted_mean_track_rate_FPIX_disk2;   
+   Bar_Ytitle_FPIX[4] = weighted_mean_track_rate_FPIX_disk3;
+   Bar_Ytitle_FPIX[5] = weighted_mean_track_rate_FPIX_disk1_plus;
+   Bar_Ytitle_FPIX[6] = weighted_mean_track_rate_FPIX_disk1_minus;
+   Bar_Ytitle_FPIX[7] = weighted_mean_track_rate_FPIX_disk2_plus;
+   Bar_Ytitle_FPIX[8] = weighted_mean_track_rate_FPIX_disk2_minus;
+   Bar_Ytitle_FPIX[9] = weighted_mean_track_rate_FPIX_disk3_plus;
+   Bar_Ytitle_FPIX[10] = weighted_mean_track_rate_FPIX_disk3_minus;
+   
+   for (int i=1; i<=11; i++)
+     {
+       hb_FPIX.SetBinContent(i, Bar_Ytitle_FPIX[i-1]);
+       hb_FPIX.GetXaxis()->SetBinLabel(i,Bar_Xtitle_FPIX[i-1].c_str());
+       // hb_FPIX.GetXaxis()->SetBinLabel();
+     }
+   
+   
+   hb_FPIX.Draw("bTEXT");
+   summary_chart_title = "SummaryChart_FPIX";
+   
+   for(int i =0; i<3 ; i++)
+     {
+       TString filename= summary_chart_title + "." + Format[i]; 
+       canvas->SaveAs(filename.Data());
+       TString mv_cmd = "mv " + filename + " Rate_Plots";
+       gSystem->Exec(mv_cmd.Data());
+     }
+   canvas->Clear();
+
+   //-----------------------------------------------------------------------------------------------
+   //			Summary Plot for track rate in PIXEL		 
+   //-----------------------------------------------------------------------------------------------
+   
+   TH1F hb_PIXEL("hb_PIXEL","Rate Summary PIXEL",10,0,10);
+   hb_PIXEL.SetFillColor(6);
+   hb_PIXEL.SetBarWidth(0.6);
+   hb_PIXEL.SetBarOffset(0.25);
+   hb_PIXEL.SetStats(0);
+   hb_PIXEL.GetXaxis()->SetLabelFont(42);
+   hb_PIXEL.GetXaxis()->SetLabelOffset(0.012);
+   hb_PIXEL.GetXaxis()->SetLabelSize(0.05);
+   hb_PIXEL.GetXaxis()->SetTitleSize(0.05);
+   hb_PIXEL.GetXaxis()->SetTitleFont(42);
+   hb_PIXEL.GetYaxis()->SetTitle("Average Rate (Hz)");
+   hb_PIXEL.GetYaxis()->SetLabelFont(42);
+   hb_PIXEL.GetYaxis()->SetLabelSize(0.05);
+   hb_PIXEL.GetYaxis()->SetTitleSize(0.05);
+   hb_PIXEL.GetYaxis()->SetTitleOffset(0);
+   
+   gStyle->SetPaintTextFormat("1.3f");
+   //hb_PIXEL.LabelsOption("d");
+   //hb_PIXEL.SetLabelSize(0.05);
+   
+   tex.DrawLatexNDC(0.4,0.8,"Rate Summary PIXEL");
+   tex.SetLineWidth(2);
+   tex.SetTextFont(62);
+   tex.Draw();
+
+   Bar_Ytitle_PIXEL[0] = weighted_mean_track_rate_PIX;
+   Bar_Ytitle_PIXEL[1] = weighted_mean_track_rate_BPIX;
+   Bar_Ytitle_PIXEL[2] = weighted_mean_track_rate_BPIX_layer1;     
+   Bar_Ytitle_PIXEL[3] = weighted_mean_track_rate_BPIX_layer2;   
+   Bar_Ytitle_PIXEL[4] = weighted_mean_track_rate_BPIX_layer3;
+   Bar_Ytitle_PIXEL[5] = weighted_mean_track_rate_BPIX_layer4;
+   Bar_Ytitle_PIXEL[6] = weighted_mean_track_rate_FPIX;
+   Bar_Ytitle_PIXEL[7] = weighted_mean_track_rate_FPIX_disk1;
+   Bar_Ytitle_PIXEL[8] = weighted_mean_track_rate_FPIX_disk2;
+   Bar_Ytitle_PIXEL[9] = weighted_mean_track_rate_FPIX_disk3;
+   
+   for (int i=1; i<=10; i++)
+     {
+       hb_PIXEL.SetBinContent(i, Bar_Ytitle_PIXEL[i-1]);
+       hb_PIXEL.GetXaxis()->SetBinLabel(i,Bar_Xtitle_PIXEL[i-1].c_str());
+       // hb_PIXEL.GetXaxis()->SetBinLabel();
+     }
+   
+   
+   hb_PIXEL.Draw("bTEXT");
+   summary_chart_title = "SummaryChart_PIXEL";
+   
+   for(int i =0; i<3 ; i++)
+     {
+       TString filename= summary_chart_title + "." + Format[i]; 
+       canvas->SaveAs(filename.Data());
+       TString mv_cmd = "mv " + filename + " Rate_Plots";
+       gSystem->Exec(mv_cmd.Data());
+     }
+   canvas->Clear();
+   canvas->Close();
+   
+}

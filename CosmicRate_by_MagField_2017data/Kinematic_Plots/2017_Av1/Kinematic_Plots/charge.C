@@ -1,0 +1,87 @@
+void charge()
+{
+//=========Macro generated from canvas: c/c
+//=========  (Thu Jun 24 10:13:54 2021) by ROOT version6.10/04
+   TCanvas *c = new TCanvas("c", "c",0,0,661,641);
+   gStyle->SetOptStat(0);
+   gStyle->SetOptTitle(0);
+   c->Range(-7.156863,-0.1044455,5.764706,0.6381363);
+   c->SetFillColor(0);
+   c->SetBorderMode(0);
+   c->SetBorderSize(3);
+   c->SetGridx();
+   c->SetGridy();
+   c->SetTickx(1);
+   c->SetTicky(1);
+   c->SetLeftMargin(0.1669196);
+   c->SetRightMargin(0.05918058);
+   c->SetTopMargin(0.08233276);
+   c->SetBottomMargin(0.1406518);
+   c->SetFrameLineWidth(3);
+   c->SetFrameBorderMode(0);
+   c->SetFrameLineWidth(3);
+   c->SetFrameBorderMode(0);
+   
+   TH1D *h_charge_1__9 = new TH1D("h_charge_1__9","h_charge_1",10,-5,5);
+   h_charge_1__9->SetBinContent(5,0.4504786);
+   h_charge_1__9->SetBinContent(7,0.5495214);
+   h_charge_1__9->SetBinError(5,0.001301662);
+   h_charge_1__9->SetBinError(7,0.001437651);
+   h_charge_1__9->SetEntries(265875);
+   h_charge_1__9->SetDirectory(0);
+   h_charge_1__9->SetLineColor(2);
+   h_charge_1__9->SetLineWidth(3);
+   h_charge_1__9->GetXaxis()->SetTitle("Track charge (e)");
+   h_charge_1__9->GetXaxis()->SetLabelFont(42);
+   h_charge_1__9->GetXaxis()->SetLabelSize(0.05);
+   h_charge_1__9->GetXaxis()->SetTitleSize(0.05);
+   h_charge_1__9->GetXaxis()->SetTitleOffset(1.12);
+   h_charge_1__9->GetXaxis()->SetTitleFont(42);
+   h_charge_1__9->GetYaxis()->SetTitle("a.u.");
+   h_charge_1__9->GetYaxis()->SetLabelFont(42);
+   h_charge_1__9->GetYaxis()->SetLabelSize(0.05);
+   h_charge_1__9->GetYaxis()->SetTitleSize(0.06);
+   h_charge_1__9->GetYaxis()->SetTitleOffset(0);
+   h_charge_1__9->GetYaxis()->SetTitleFont(42);
+   h_charge_1__9->GetZaxis()->SetLabelFont(42);
+   h_charge_1__9->GetZaxis()->SetLabelSize(0.035);
+   h_charge_1__9->GetZaxis()->SetTitleSize(0.035);
+   h_charge_1__9->GetZaxis()->SetTitleFont(42);
+   h_charge_1__9->Draw("HIST");
+   TLatex *   tex = new TLatex(0.69,0.94,"cosmic rays (2017)");
+tex->SetNDC();
+   tex->SetTextFont(42);
+   tex->SetTextSize(0.035);
+   tex->SetLineWidth(2);
+   tex->Draw();
+   
+   TLegend *leg = new TLegend(0.2094082,0.7238562,0.4522003,0.874183,NULL,"brNDC");
+   leg->SetBorderSize(1);
+   leg->SetTextSize(0.03921569);
+   leg->SetLineColor(1);
+   leg->SetLineStyle(1);
+   leg->SetLineWidth(2);
+   leg->SetFillColor(0);
+   leg->SetFillStyle(1001);
+   TLegendEntry *entry=leg->AddEntry("NULL","Magnetic Field","h");
+   entry->SetLineColor(1);
+   entry->SetLineStyle(1);
+   entry->SetLineWidth(1);
+   entry->SetMarkerColor(1);
+   entry->SetMarkerStyle(21);
+   entry->SetMarkerSize(1);
+   entry->SetTextFont(42);
+   entry=leg->AddEntry("NULL","3.8 T","lpf");
+   entry->SetFillStyle(1001);
+   entry->SetLineColor(2);
+   entry->SetLineStyle(1);
+   entry->SetLineWidth(3);
+   entry->SetMarkerColor(2);
+   entry->SetMarkerStyle(1);
+   entry->SetMarkerSize(1);
+   entry->SetTextFont(42);
+   leg->Draw();
+   c->Modified();
+   c->cd();
+   c->SetSelected(c);
+}

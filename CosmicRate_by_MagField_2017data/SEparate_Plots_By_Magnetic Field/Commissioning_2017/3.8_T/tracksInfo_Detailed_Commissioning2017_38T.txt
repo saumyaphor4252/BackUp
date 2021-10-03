@@ -1,0 +1,648 @@
+##################################################
+         Track rate for each run number           
+##################################################
+runnum :293849 , # of tracks :6997      , track rates :2.71      
+runnum :293502 , # of tracks :2237      , track rates :1.38      
+runnum :293843 , # of tracks :433       , track rates :2.61      
+runnum :294315 , # of tracks :170       , track rates :0.37      
+runnum :293580 , # of tracks :23588     , track rates :2.79      
+runnum :294313 , # of tracks :191       , track rates :0.33      
+runnum :294291 , # of tracks :9304      , track rates :2.85      
+runnum :294058 , # of tracks :1191      , track rates :2.85      
+runnum :294491 , # of tracks :1652      , track rates :1.38      
+runnum :294048 , # of tracks :2180      , track rates :2.83      
+runnum :294406 , # of tracks :2234      , track rates :2.62      
+runnum :294034 , # of tracks :10113     , track rates :2.77      
+runnum :293998 , # of tracks :4611      , track rates :2.49      
+runnum :293864 , # of tracks :266       , track rates :2.46      
+runnum :293693 , # of tracks :191       , track rates :2.45      
+runnum :293688 , # of tracks :5609      , track rates :2.54      
+runnum :294383 , # of tracks :581       , track rates :2.95      
+runnum :294298 , # of tracks :1414      , track rates :2.84      
+runnum :294308 , # of tracks :11        , track rates :0.58      
+runnum :294042 , # of tracks :5403      , track rates :2.74      
+runnum :294307 , # of tracks :102673    , track rates :2.80      
+runnum :293879 , # of tracks :1139      , track rates :1.92      
+runnum :293684 , # of tracks :4018      , track rates :2.61      
+runnum :293837 , # of tracks :4707      , track rates :2.83      
+runnum :293678 , # of tracks :9157      , track rates :2.79      
+runnum :294011 , # of tracks :1110      , track rates :2.41      
+runnum :294393 , # of tracks :1086      , track rates :2.89      
+runnum :294003 , # of tracks :4653      , track rates :2.83      
+runnum :293492 , # of tracks :100747    , track rates :2.89      
+runnum :293860 , # of tracks :1083      , track rates :3.00      
+runnum :294490 , # of tracks :4399      , track rates :2.87      
+runnum :294487 , # of tracks :1637      , track rates :2.89      
+runnum :293866 , # of tracks :2623      , track rates :2.70      
+runnum :294059 , # of tracks :5062      , track rates :2.70      
+runnum :294008 , # of tracks :2228      , track rates :2.80      
+runnum :294311 , # of tracks :605       , track rates :0.40      
+runnum :293965 , # of tracks :1669      , track rates :2.81      
+runnum :294418 , # of tracks :871       , track rates :2.68      
+runnum :294287 , # of tracks :118       , track rates :0.38      
+runnum :294481 , # of tracks :322       , track rates :2.86      
+runnum :294006 , # of tracks :2189      , track rates :2.76      
+runnum :293581 , # of tracks :21804     , track rates :2.74      
+runnum :294300 , # of tracks :2888      , track rates :2.88      
+runnum :293963 , # of tracks :6328      , track rates :2.00      
+runnum :294317 , # of tracks :779       , track rates :0.34      
+runnum :294482 , # of tracks :2981      , track rates :2.51      
+runnum :294053 , # of tracks :453       , track rates :2.91      
+runnum :294309 , # of tracks :430       , track rates :0.38      
+runnum :294485 , # of tracks :1142      , track rates :2.28      
+runnum :293967 , # of tracks :6         , track rates :0.81      
+runnum :293491 , # of tracks :7451      , track rates :2.90      
+runnum :294040 , # of tracks :3121      , track rates :2.76      
+runnum :294000 , # of tracks :3793      , track rates :2.69      
+runnum :293699 , # of tracks :3104      , track rates :2.38      
+runnum :293971 , # of tracks :2543      , track rates :2.60      
+runnum :294398 , # of tracks :2930      , track rates :2.79      
+runnum :293997 , # of tracks :2893      , track rates :2.80      
+runnum :293964 , # of tracks :2718      , track rates :2.76      
+runnum :293696 , # of tracks :7392      , track rates :2.58      
+runnum :294060 , # of tracks :781       , track rates :0.16      
+runnum :293877 , # of tracks :223       , track rates :2.95      
+runnum :293501 , # of tracks :787       , track rates :3.24      
+
+
+##################################################
+    Some information on total number of tracks    
+##################################################
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+# of tracks in PIX  : 7736      
+
+
+0 Run 	 Tracks: 6997.000000 	 Weight: 0.017276 	 Events: 9709.000000 	 EventRate: 3.766511 
+1 Run 	 Tracks: 2237.000000 	 Weight: 0.005523 	 Events: 3089.000000 	 EventRate: 1.899656 
+2 Run 	 Tracks: 433.000000 	 Weight: 0.001069 	 Events: 576.000000 	 EventRate: 3.474178 
+3 Run 	 Tracks: 170.000000 	 Weight: 0.000420 	 Events: 188.000000 	 EventRate: 0.409726 
+4 Run 	 Tracks: 23588.000000 	 Weight: 0.058239 	 Events: 33038.000000 	 EventRate: 3.902784 
+5 Run 	 Tracks: 191.000000 	 Weight: 0.000472 	 Events: 238.000000 	 EventRate: 0.409555 
+6 Run 	 Tracks: 9304.000000 	 Weight: 0.022972 	 Events: 12894.000000 	 EventRate: 3.946665 
+7 Run 	 Tracks: 1191.000000 	 Weight: 0.002941 	 Events: 1649.000000 	 EventRate: 3.950308 
+8 Run 	 Tracks: 1652.000000 	 Weight: 0.004079 	 Events: 2315.000000 	 EventRate: 1.935633 
+9 Run 	 Tracks: 2180.000000 	 Weight: 0.005382 	 Events: 2975.000000 	 EventRate: 3.862106 
+10 Run 	 Tracks: 2234.000000 	 Weight: 0.005516 	 Events: 2855.000000 	 EventRate: 3.350279 
+11 Run 	 Tracks: 10113.000000 	 Weight: 0.024969 	 Events: 14187.000000 	 EventRate: 3.883500 
+12 Run 	 Tracks: 4611.000000 	 Weight: 0.011385 	 Events: 6493.000000 	 EventRate: 3.507756 
+13 Run 	 Tracks: 266.000000 	 Weight: 0.000657 	 Events: 387.000000 	 EventRate: 3.583846 
+14 Run 	 Tracks: 191.000000 	 Weight: 0.000472 	 Events: 266.000000 	 EventRate: 3.407845 
+15 Run 	 Tracks: 5609.000000 	 Weight: 0.013849 	 Events: 7884.000000 	 EventRate: 3.574647 
+16 Run 	 Tracks: 581.000000 	 Weight: 0.001435 	 Events: 801.000000 	 EventRate: 4.071091 
+17 Run 	 Tracks: 1414.000000 	 Weight: 0.003491 	 Events: 2028.000000 	 EventRate: 4.074307 
+18 Run 	 Tracks: 11.000000 	 Weight: 0.000027 	 Events: 11.000000 	 EventRate: 0.581818 
+19 Run 	 Tracks: 5403.000000 	 Weight: 0.013340 	 Events: 7570.000000 	 EventRate: 3.836227 
+20 Run 	 Tracks: 102673.000000 	 Weight: 0.253502 	 Events: 143761.000000 	 EventRate: 3.925824 
+21 Run 	 Tracks: 1139.000000 	 Weight: 0.002812 	 Events: 1608.000000 	 EventRate: 2.709384 
+22 Run 	 Tracks: 4018.000000 	 Weight: 0.009921 	 Events: 5609.000000 	 EventRate: 3.640184 
+23 Run 	 Tracks: 4707.000000 	 Weight: 0.011622 	 Events: 6539.000000 	 EventRate: 3.925801 
+24 Run 	 Tracks: 9157.000000 	 Weight: 0.022609 	 Events: 12579.000000 	 EventRate: 3.828028 
+25 Run 	 Tracks: 1110.000000 	 Weight: 0.002741 	 Events: 1542.000000 	 EventRate: 3.351920 
+26 Run 	 Tracks: 1086.000000 	 Weight: 0.002681 	 Events: 1480.000000 	 EventRate: 3.933275 
+27 Run 	 Tracks: 4653.000000 	 Weight: 0.011488 	 Events: 6531.000000 	 EventRate: 3.969424 
+28 Run 	 Tracks: 100747.000000 	 Weight: 0.248746 	 Events: 140496.000000 	 EventRate: 4.034124 
+29 Run 	 Tracks: 1083.000000 	 Weight: 0.002674 	 Events: 1474.000000 	 EventRate: 4.081804 
+30 Run 	 Tracks: 4399.000000 	 Weight: 0.010861 	 Events: 6056.000000 	 EventRate: 3.953754 
+31 Run 	 Tracks: 1637.000000 	 Weight: 0.004042 	 Events: 2294.000000 	 EventRate: 4.054421 
+32 Run 	 Tracks: 2623.000000 	 Weight: 0.006476 	 Events: 3544.000000 	 EventRate: 3.651133 
+33 Run 	 Tracks: 5062.000000 	 Weight: 0.012498 	 Events: 7139.000000 	 EventRate: 3.811364 
+34 Run 	 Tracks: 2228.000000 	 Weight: 0.005501 	 Events: 3111.000000 	 EventRate: 3.916213 
+35 Run 	 Tracks: 605.000000 	 Weight: 0.001494 	 Events: 742.000000 	 EventRate: 0.489834 
+36 Run 	 Tracks: 1669.000000 	 Weight: 0.004121 	 Events: 2363.000000 	 EventRate: 3.983719 
+37 Run 	 Tracks: 871.000000 	 Weight: 0.002151 	 Events: 1117.000000 	 EventRate: 3.437895 
+38 Run 	 Tracks: 118.000000 	 Weight: 0.000291 	 Events: 134.000000 	 EventRate: 0.434092 
+39 Run 	 Tracks: 322.000000 	 Weight: 0.000795 	 Events: 434.000000 	 EventRate: 3.850758 
+40 Run 	 Tracks: 2189.000000 	 Weight: 0.005405 	 Events: 3113.000000 	 EventRate: 3.925625 
+41 Run 	 Tracks: 21804.000000 	 Weight: 0.053835 	 Events: 30474.000000 	 EventRate: 3.833575 
+42 Run 	 Tracks: 2888.000000 	 Weight: 0.007131 	 Events: 4035.000000 	 EventRate: 4.028146 
+43 Run 	 Tracks: 6328.000000 	 Weight: 0.015624 	 Events: 8646.000000 	 EventRate: 2.732634 
+44 Run 	 Tracks: 779.000000 	 Weight: 0.001923 	 Events: 915.000000 	 EventRate: 0.398223 
+45 Run 	 Tracks: 2981.000000 	 Weight: 0.007360 	 Events: 4136.000000 	 EventRate: 3.484442 
+46 Run 	 Tracks: 453.000000 	 Weight: 0.001118 	 Events: 648.000000 	 EventRate: 4.161125 
+47 Run 	 Tracks: 430.000000 	 Weight: 0.001062 	 Events: 497.000000 	 EventRate: 0.441641 
+48 Run 	 Tracks: 1142.000000 	 Weight: 0.002820 	 Events: 1600.000000 	 EventRate: 3.198552 
+49 Run 	 Tracks: 6.000000 	 Weight: 0.000015 	 Events: 8.000000 	 EventRate: 1.080716 
+50 Run 	 Tracks: 7451.000000 	 Weight: 0.018397 	 Events: 10381.000000 	 EventRate: 4.040930 
+51 Run 	 Tracks: 3121.000000 	 Weight: 0.007706 	 Events: 4317.000000 	 EventRate: 3.820740 
+52 Run 	 Tracks: 3793.000000 	 Weight: 0.009365 	 Events: 5333.000000 	 EventRate: 3.780490 
+53 Run 	 Tracks: 3104.000000 	 Weight: 0.007664 	 Events: 4230.000000 	 EventRate: 3.244650 
+54 Run 	 Tracks: 2543.000000 	 Weight: 0.006279 	 Events: 3550.000000 	 EventRate: 3.626271 
+55 Run 	 Tracks: 2930.000000 	 Weight: 0.007234 	 Events: 4093.000000 	 EventRate: 3.903605 
+56 Run 	 Tracks: 2893.000000 	 Weight: 0.007143 	 Events: 3854.000000 	 EventRate: 3.732473 
+57 Run 	 Tracks: 2718.000000 	 Weight: 0.006711 	 Events: 3779.000000 	 EventRate: 3.835400 
+58 Run 	 Tracks: 7392.000000 	 Weight: 0.018251 	 Events: 10337.000000 	 EventRate: 3.612836 
+59 Run 	 Tracks: 781.000000 	 Weight: 0.001928 	 Events: 6440.000000 	 EventRate: 1.359687 
+60 Run 	 Tracks: 223.000000 	 Weight: 0.000551 	 Events: 311.000000 	 EventRate: 4.114893 
+61 Run 	 Tracks: 787.000000 	 Weight: 0.001943 	 Events: 1074.000000 	 EventRate: 4.418874 
+
+
+##################################################
+               Weight per Subdetector             
+##################################################
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 0 event  : 0.011638
+Track Rate FPIX 0 event  : 0.065950
+No of total tracks in 0 event  : 6997      
+No of BPIX tracks in 0 event  : 30        
+# Weight for 0 RunNumber : 0.017276
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 1 event  : 0.000000
+Track Rate FPIX 1 event  : 0.000000
+No of total tracks in 1 event  : 2237      
+No of BPIX tracks in 1 event  : 0         
+# Weight for 1 RunNumber : 0.005523
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 2 event  : 0.000000
+Track Rate FPIX 2 event  : 0.084442
+No of total tracks in 2 event  : 433       
+No of BPIX tracks in 2 event  : 0         
+# Weight for 2 RunNumber : 0.001069
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 3 event  : 0.000000
+Track Rate FPIX 3 event  : 0.000000
+No of total tracks in 3 event  : 170       
+No of BPIX tracks in 3 event  : 0         
+# Weight for 3 RunNumber : 0.000420
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 4 event  : 0.000000
+Track Rate FPIX 4 event  : 0.000000
+No of total tracks in 4 event  : 23588     
+No of BPIX tracks in 4 event  : 0         
+# Weight for 4 RunNumber : 0.058239
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 5 event  : 0.000000
+Track Rate FPIX 5 event  : 0.000000
+No of total tracks in 5 event  : 191       
+No of BPIX tracks in 5 event  : 0         
+# Weight for 5 RunNumber : 0.000472
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 6 event  : 0.000000
+Track Rate FPIX 6 event  : 0.000000
+No of total tracks in 6 event  : 9304      
+No of BPIX tracks in 6 event  : 0         
+# Weight for 6 RunNumber : 0.022972
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 7 event  : 0.007187
+Track Rate FPIX 7 event  : 0.062285
+No of total tracks in 7 event  : 1191      
+No of BPIX tracks in 7 event  : 3         
+# Weight for 7 RunNumber : 0.002941
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 8 event  : 0.000000
+Track Rate FPIX 8 event  : 0.000000
+No of total tracks in 8 event  : 1652      
+No of BPIX tracks in 8 event  : 0         
+# Weight for 8 RunNumber : 0.004079
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 9 event  : 0.000000
+Track Rate FPIX 9 event  : 0.000000
+No of total tracks in 9 event  : 2180      
+No of BPIX tracks in 9 event  : 0         
+# Weight for 9 RunNumber : 0.005382
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 10 event  : 0.000000
+Track Rate FPIX 10 event  : 0.000000
+No of total tracks in 10 event  : 2234      
+No of BPIX tracks in 10 event  : 0         
+# Weight for 10 RunNumber : 0.005516
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 11 event  : 0.000000
+Track Rate FPIX 11 event  : 0.000000
+No of total tracks in 11 event  : 10113     
+No of BPIX tracks in 11 event  : 0         
+# Weight for 11 RunNumber : 0.024969
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 12 event  : 0.010805
+Track Rate FPIX 12 event  : 0.075633
+No of total tracks in 12 event  : 4611      
+No of BPIX tracks in 12 event  : 20        
+# Weight for 12 RunNumber : 0.011385
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 13 event  : 0.009261
+Track Rate FPIX 13 event  : 0.018521
+No of total tracks in 13 event  : 266       
+No of BPIX tracks in 13 event  : 1         
+# Weight for 13 RunNumber : 0.000657
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 14 event  : 0.000000
+Track Rate FPIX 14 event  : 0.000000
+No of total tracks in 14 event  : 191       
+No of BPIX tracks in 14 event  : 0         
+# Weight for 14 RunNumber : 0.000472
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 15 event  : 0.000000
+Track Rate FPIX 15 event  : 0.064837
+No of total tracks in 15 event  : 5609      
+No of BPIX tracks in 15 event  : 0         
+# Weight for 15 RunNumber : 0.013849
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 16 event  : 0.000000
+Track Rate FPIX 16 event  : 0.000000
+No of total tracks in 16 event  : 581       
+No of BPIX tracks in 16 event  : 0         
+# Weight for 16 RunNumber : 0.001435
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 17 event  : 0.000000
+Track Rate FPIX 17 event  : 0.000000
+No of total tracks in 17 event  : 1414      
+No of BPIX tracks in 17 event  : 0         
+# Weight for 17 RunNumber : 0.003491
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 18 event  : 0.000000
+Track Rate FPIX 18 event  : 0.000000
+No of total tracks in 18 event  : 11        
+No of BPIX tracks in 18 event  : 0         
+# Weight for 18 RunNumber : 0.000027
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 19 event  : 0.000000
+Track Rate FPIX 19 event  : 0.000000
+No of total tracks in 19 event  : 5403      
+No of BPIX tracks in 19 event  : 0         
+# Weight for 19 RunNumber : 0.013340
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 20 event  : 0.012999
+Track Rate FPIX 20 event  : 0.069990
+No of total tracks in 20 event  : 102673    
+No of BPIX tracks in 20 event  : 476       
+# Weight for 20 RunNumber : 0.253502
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 21 event  : 0.006740
+Track Rate FPIX 21 event  : 0.048863
+No of total tracks in 21 event  : 1139      
+No of BPIX tracks in 21 event  : 4         
+# Weight for 21 RunNumber : 0.002812
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 22 event  : 0.000000
+Track Rate FPIX 22 event  : 0.000000
+No of total tracks in 22 event  : 4018      
+No of BPIX tracks in 22 event  : 0         
+# Weight for 22 RunNumber : 0.009921
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 23 event  : 0.000000
+Track Rate FPIX 23 event  : 0.000000
+No of total tracks in 23 event  : 4707      
+No of BPIX tracks in 23 event  : 0         
+# Weight for 23 RunNumber : 0.011622
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 24 event  : 0.000000
+Track Rate FPIX 24 event  : 0.000000
+No of total tracks in 24 event  : 9157      
+No of BPIX tracks in 24 event  : 0         
+# Weight for 24 RunNumber : 0.022609
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 25 event  : 0.015216
+Track Rate FPIX 25 event  : 0.071734
+No of total tracks in 25 event  : 1110      
+No of BPIX tracks in 25 event  : 7         
+# Weight for 25 RunNumber : 0.002741
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 26 event  : 0.000000
+Track Rate FPIX 26 event  : 0.000000
+No of total tracks in 26 event  : 1086      
+No of BPIX tracks in 26 event  : 0         
+# Weight for 26 RunNumber : 0.002681
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 27 event  : 0.000000
+Track Rate FPIX 27 event  : 0.000000
+No of total tracks in 27 event  : 4653      
+No of BPIX tracks in 27 event  : 0         
+# Weight for 27 RunNumber : 0.011488
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 28 event  : 0.013725
+Track Rate FPIX 28 event  : 0.070549
+No of total tracks in 28 event  : 100747    
+No of BPIX tracks in 28 event  : 478       
+# Weight for 28 RunNumber : 0.248746
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 29 event  : 0.019384
+Track Rate FPIX 29 event  : 0.077538
+No of total tracks in 29 event  : 1083      
+No of BPIX tracks in 29 event  : 7         
+# Weight for 29 RunNumber : 0.002674
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 30 event  : 0.016322
+Track Rate FPIX 30 event  : 0.072468
+No of total tracks in 30 event  : 4399      
+No of BPIX tracks in 30 event  : 25        
+# Weight for 30 RunNumber : 0.010861
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 31 event  : 0.017674
+Track Rate FPIX 31 event  : 0.084835
+No of total tracks in 31 event  : 1637      
+No of BPIX tracks in 31 event  : 10        
+# Weight for 31 RunNumber : 0.004042
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 32 event  : 0.007212
+Track Rate FPIX 32 event  : 0.082418
+No of total tracks in 32 event  : 2623      
+No of BPIX tracks in 32 event  : 7         
+# Weight for 32 RunNumber : 0.006476
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 33 event  : 0.000000
+Track Rate FPIX 33 event  : 0.000000
+No of total tracks in 33 event  : 5062      
+No of BPIX tracks in 33 event  : 0         
+# Weight for 33 RunNumber : 0.012498
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 34 event  : 0.000000
+Track Rate FPIX 34 event  : 0.000000
+No of total tracks in 34 event  : 2228      
+No of BPIX tracks in 34 event  : 0         
+# Weight for 34 RunNumber : 0.005501
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 35 event  : 0.000000
+Track Rate FPIX 35 event  : 0.000000
+No of total tracks in 35 event  : 605       
+No of BPIX tracks in 35 event  : 0         
+# Weight for 35 RunNumber : 0.001494
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 36 event  : 0.000000
+Track Rate FPIX 36 event  : 0.000000
+No of total tracks in 36 event  : 1669      
+No of BPIX tracks in 36 event  : 0         
+# Weight for 36 RunNumber : 0.004121
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 37 event  : 0.000000
+Track Rate FPIX 37 event  : 0.000000
+No of total tracks in 37 event  : 871       
+No of BPIX tracks in 37 event  : 0         
+# Weight for 37 RunNumber : 0.002151
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 38 event  : 0.000000
+Track Rate FPIX 38 event  : 0.000000
+No of total tracks in 38 event  : 118       
+No of BPIX tracks in 38 event  : 0         
+# Weight for 38 RunNumber : 0.000291
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 39 event  : 0.000000
+Track Rate FPIX 39 event  : 0.000000
+No of total tracks in 39 event  : 322       
+No of BPIX tracks in 39 event  : 0         
+# Weight for 39 RunNumber : 0.000795
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 40 event  : 0.000000
+Track Rate FPIX 40 event  : 0.000000
+No of total tracks in 40 event  : 2189      
+No of BPIX tracks in 40 event  : 0         
+# Weight for 40 RunNumber : 0.005405
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 41 event  : 0.010693
+Track Rate FPIX 41 event  : 0.072082
+No of total tracks in 41 event  : 21804     
+No of BPIX tracks in 41 event  : 85        
+# Weight for 41 RunNumber : 0.053835
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 42 event  : 0.000000
+Track Rate FPIX 42 event  : 0.000000
+No of total tracks in 42 event  : 2888      
+No of BPIX tracks in 42 event  : 0         
+# Weight for 42 RunNumber : 0.007131
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 43 event  : 0.000000
+Track Rate FPIX 43 event  : 0.045512
+No of total tracks in 43 event  : 6328      
+No of BPIX tracks in 43 event  : 0         
+# Weight for 43 RunNumber : 0.015624
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 44 event  : 0.000000
+Track Rate FPIX 44 event  : 0.000000
+No of total tracks in 44 event  : 779       
+No of BPIX tracks in 44 event  : 0         
+# Weight for 44 RunNumber : 0.001923
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 45 event  : 0.000842
+Track Rate FPIX 45 event  : 0.002527
+No of total tracks in 45 event  : 2981      
+No of BPIX tracks in 45 event  : 1         
+# Weight for 45 RunNumber : 0.007360
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 46 event  : 0.000000
+Track Rate FPIX 46 event  : 0.000000
+No of total tracks in 46 event  : 453       
+No of BPIX tracks in 46 event  : 0         
+# Weight for 46 RunNumber : 0.001118
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 47 event  : 0.000000
+Track Rate FPIX 47 event  : 0.000000
+No of total tracks in 47 event  : 430       
+No of BPIX tracks in 47 event  : 0         
+# Weight for 47 RunNumber : 0.001062
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 48 event  : 0.013994
+Track Rate FPIX 48 event  : 0.061972
+No of total tracks in 48 event  : 1142      
+No of BPIX tracks in 48 event  : 7         
+# Weight for 48 RunNumber : 0.002820
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 49 event  : 0.000000
+Track Rate FPIX 49 event  : 0.000000
+No of total tracks in 49 event  : 6         
+No of BPIX tracks in 49 event  : 0         
+# Weight for 49 RunNumber : 0.000015
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 50 event  : 0.000000
+Track Rate FPIX 50 event  : 0.000000
+No of total tracks in 50 event  : 7451      
+No of BPIX tracks in 50 event  : 0         
+# Weight for 50 RunNumber : 0.018397
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 51 event  : 0.000000
+Track Rate FPIX 51 event  : 0.000000
+No of total tracks in 51 event  : 3121      
+No of BPIX tracks in 51 event  : 0         
+# Weight for 51 RunNumber : 0.007706
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 52 event  : 0.000000
+Track Rate FPIX 52 event  : 0.000000
+No of total tracks in 52 event  : 3793      
+No of BPIX tracks in 52 event  : 0         
+# Weight for 52 RunNumber : 0.009365
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 53 event  : 0.000000
+Track Rate FPIX 53 event  : 0.000000
+No of total tracks in 53 event  : 3104      
+No of BPIX tracks in 53 event  : 0         
+# Weight for 53 RunNumber : 0.007664
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 54 event  : 0.000000
+Track Rate FPIX 54 event  : 0.000000
+No of total tracks in 54 event  : 2543      
+No of BPIX tracks in 54 event  : 0         
+# Weight for 54 RunNumber : 0.006279
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 55 event  : 0.000000
+Track Rate FPIX 55 event  : 0.000000
+No of total tracks in 55 event  : 2930      
+No of BPIX tracks in 55 event  : 0         
+# Weight for 55 RunNumber : 0.007234
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 56 event  : 0.000000
+Track Rate FPIX 56 event  : 0.000000
+No of total tracks in 56 event  : 2893      
+No of BPIX tracks in 56 event  : 0         
+# Weight for 56 RunNumber : 0.007143
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 57 event  : 0.000000
+Track Rate FPIX 57 event  : 0.000000
+No of total tracks in 57 event  : 2718      
+No of BPIX tracks in 57 event  : 0         
+# Weight for 57 RunNumber : 0.006711
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 58 event  : 0.000000
+Track Rate FPIX 58 event  : 0.000000
+No of total tracks in 58 event  : 7392      
+No of BPIX tracks in 58 event  : 0         
+# Weight for 58 RunNumber : 0.018251
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 59 event  : 0.000000
+Track Rate FPIX 59 event  : 0.000000
+No of total tracks in 59 event  : 781       
+No of BPIX tracks in 59 event  : 0         
+# Weight for 59 RunNumber : 0.001928
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 60 event  : 0.026462
+Track Rate FPIX 60 event  : 0.132312
+No of total tracks in 60 event  : 223       
+No of BPIX tracks in 60 event  : 2         
+# Weight for 60 RunNumber : 0.000551
+Total # of tracks   : 405019    
+# of tracks in BPIX : 1163      
+# of tracks in FPIX : 6605      
+Track Rate BPIX 61 event  : 0.000000
+Track Rate FPIX 61 event  : 0.000000
+No of total tracks in 61 event  : 787       
+No of BPIX tracks in 61 event  : 0         
+# Weight for 61 RunNumber : 0.001943
+Weighted mean for Event Rate : 3.835165
+Weighted mean for Total Track Rate : 2.749560
+Weighted mean for BPIX Track Rate : 0.008104
+Weighted mean for FPIX Track Rate : 0.045538
+Weighted mean for TIB Track Rate: 1.100186
+Weighted mean for TOB Track Rate: 2.524021
+Weighted mean for TID Track Rate: 0.575291
+Weighted mean for TEC Track Rate: 0.827097
+Total Weight : 1.000000

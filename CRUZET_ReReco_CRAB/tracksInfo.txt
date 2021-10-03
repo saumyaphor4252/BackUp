@@ -1,0 +1,96 @@
+##################################################
+         Track rate for each run number           
+##################################################
+runnum :343001, # of tracks :318, track rates :1.95      
+runnum :343004, # of tracks :788, track rates :2.19      
+runnum :343005, # of tracks :943, track rates :2.13      
+runnum :343007, # of tracks :637, track rates :0.09      
+runnum :343009, # of tracks :2687, track rates :1.84      
+runnum :343018, # of tracks :6420, track rates :2.16      
+runnum :343025, # of tracks :36, track rates :2.57      
+runnum :343034, # of tracks :87744, track rates :1.97      
+runnum :343042, # of tracks :10502, track rates :2.00      
+runnum :343045, # of tracks :773, track rates :2.00      
+runnum :343046, # of tracks :14872, track rates :1.98      
+runnum :343059, # of tracks :2115, track rates :1.99      
+runnum :343068, # of tracks :21002, track rates :1.89      
+runnum :343070, # of tracks :2762, track rates :1.94      
+runnum :343080, # of tracks :12128, track rates :1.99      
+runnum :343082, # of tracks :73343, track rates :1.92      
+runnum :343266, # of tracks :13109, track rates :0.41      
+runnum :343268, # of tracks :804, track rates :0.11      
+runnum :343375, # of tracks :60, track rates :0.20      
+runnum :343385, # of tracks :299, track rates :0.74      
+runnum :343386, # of tracks :111, track rates :0.33      
+runnum :343387, # of tracks :5508, track rates :2.13      
+runnum :343772, # of tracks :86, track rates :2.69      
+runnum :343854, # of tracks :25, track rates :0.11      
+runnum :343860, # of tracks :3062, track rates :2.77      
+runnum :343862, # of tracks :102006, track rates :1.65      
+runnum :343864, # of tracks :2980, track rates :1.42      
+runnum :343866, # of tracks :17, track rates :0.17      
+runnum :343925, # of tracks :14, track rates :0.16      
+runnum :343928, # of tracks :2, track rates :0.06      
+runnum :343934, # of tracks :70, track rates :4.38      
+runnum :343936, # of tracks :132, track rates :2.81      
+runnum :343937, # of tracks :79345, track rates :2.59      
+runnum :343993, # of tracks :135, track rates :0.03      
+runnum :344001, # of tracks :141037, track rates :1.41      
+runnum :344049, # of tracks :309, track rates :3.25      
+runnum :344063, # of tracks :24273, track rates :2.64      
+runnum :344064, # of tracks :113726, track rates :0.82      
+runnum :344065, # of tracks :8128, track rates :2.15      
+runnum :344067, # of tracks :47132, track rates :2.70      
+runnum :344068, # of tracks :12044, track rates :0.19      
+runnum :344124, # of tracks :13, track rates :0.01      
+runnum :344128, # of tracks :267, track rates :0.07      
+runnum :344134, # of tracks :123286, track rates :1.52      
+runnum :344184, # of tracks :3477, track rates :1.09      
+runnum :344185, # of tracks :7748, track rates :1.21      
+runnum :344186, # of tracks :88802, track rates :0.97      
+runnum :344187, # of tracks :176, track rates :1.93      
+runnum :344188, # of tracks :8140, track rates :1.22      
+runnum :344258, # of tracks :10, track rates :0.07      
+runnum :344259, # of tracks :440, track rates :2.29      
+runnum :344260, # of tracks :3310, track rates :1.68      
+runnum :344265, # of tracks :47, track rates :3.92      
+runnum :344266, # of tracks :45925, track rates :1.52      
+runnum :344348, # of tracks :4755, track rates :1.59      
+runnum :344349, # of tracks :98, track rates :4.67      
+runnum :344350, # of tracks :707, track rates :2.25      
+runnum :344358, # of tracks :22, track rates :0.02      
+runnum :344362, # of tracks :59, track rates :0.01      
+runnum :344363, # of tracks :2, track rates :0.01      
+runnum :344366, # of tracks :16142, track rates :1.34      
+runnum :344409, # of tracks :365, track rates :2.24      
+runnum :344416, # of tracks :66, track rates :8.25      
+runnum :344420, # of tracks :28936, track rates :2.11      
+runnum :344421, # of tracks :629, track rates :2.22      
+runnum :344423, # of tracks :123949, track rates :2.13      
+runnum :344424, # of tracks :3691, track rates :2.19      
+runnum :344426, # of tracks :1358, track rates :2.23      
+runnum :344430, # of tracks :2, track rates :0.02      
+runnum :344432, # of tracks :141, track rates :1.86      
+runnum :344433, # of tracks :2074, track rates :2.15      
+runnum :344434, # of tracks :980, track rates :2.07      
+runnum :344436, # of tracks :364, track rates :2.36      
+runnum :344520, # of tracks :178, track rates :2.25      
+runnum :344558, # of tracks :207, track rates :2.18      
+runnum :344565, # of tracks :80, track rates :2.00      
+runnum :344566, # of tracks :55707, track rates :1.73      
+runnum :344567, # of tracks :2651, track rates :1.82      
+runnum :344568, # of tracks :6567, track rates :1.85      
+runnum :344606, # of tracks :1074, track rates :1.78      
+runnum :344607, # of tracks :2355, track rates :1.77      
+runnum :344617, # of tracks :217, track rates :2.24      
+runnum :344618, # of tracks :1553, track rates :2.04      
+runnum :344621, # of tracks :5891, track rates :2.03      
+runnum :344625, # of tracks :22, track rates :0.01      
+
+
+##################################################
+    Some information on total number of tracks    
+##################################################
+Total # of tracks   : 1333967
+
+

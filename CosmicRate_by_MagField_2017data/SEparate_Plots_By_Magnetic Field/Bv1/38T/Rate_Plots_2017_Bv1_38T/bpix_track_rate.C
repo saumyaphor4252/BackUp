@@ -1,0 +1,274 @@
+void bpix_track_rate()
+{
+//=========Macro generated from canvas: c/c
+//=========  (Wed Jun 23 23:07:03 2021) by ROOT version6.10/04
+   TCanvas *c = new TCanvas("c", "c",193,183,800,600);
+   c->Range(296882.2,-0.02709092,297894.8,0.2438182);
+   c->SetFillColor(0);
+   c->SetBorderMode(0);
+   c->SetBorderSize(2);
+   c->SetGridx();
+   c->SetGridy();
+   c->SetFrameBorderMode(0);
+   c->SetFrameBorderMode(0);
+   
+   Double_t Graph0_fx1005[51] = {
+   297642,
+   297104,
+   297439,
+   297725,
+   297724,
+   297633,
+   297508,
+   297344,
+   297463,
+   297638,
+   297667,
+   297117,
+   297393,
+   297720,
+   297345,
+   297506,
+   297360,
+   297719,
+   297414,
+   297385,
+   297464,
+   297051,
+   297452,
+   297686,
+   297475,
+   297392,
+   297119,
+   297415,
+   297389,
+   297437,
+   297510,
+   297120,
+   297103,
+   297726,
+   297436,
+   297118,
+   297121,
+   297362,
+   297446,
+   297622,
+   297365,
+   297443,
+   297624,
+   297384,
+   297449,
+   297364,
+   297608,
+   297623,
+   297361,
+   297680,
+   297368};
+   Double_t Graph0_fy1005[51] = {
+   0.1163182,
+   0.1304765,
+   0,
+   0.1317236,
+   0,
+   0.1682818,
+   0,
+   0.1256052,
+   0.1276384,
+   0.1229193,
+   0.1236152,
+   0,
+   0,
+   0.1242544,
+   0.05523653,
+   0,
+   0.1526346,
+   0.1223639,
+   0.1302539,
+   0,
+   0.1331884,
+   0.1381807,
+   0.1436399,
+   0,
+   0.1364785,
+   0,
+   0.1439034,
+   0.0630116,
+   0,
+   0,
+   0,
+   0.1709545,
+   0.1622942,
+   0.1274076,
+   0,
+   0,
+   0,
+   0,
+   0.05431259,
+   0,
+   0,
+   0,
+   0.1335719,
+   0,
+   0.1461108,
+   0,
+   0.08993365,
+   0,
+   0,
+   0,
+   0};
+   Double_t Graph0_fex1005[51] = {
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0};
+   Double_t Graph0_fey1005[51] = {
+   0.01212701,
+   0.004170045,
+   0,
+   0.005581309,
+   0,
+   0.01708642,
+   0,
+   0.01181594,
+   0.0329561,
+   0.01325473,
+   0.006733749,
+   0,
+   0,
+   0.005523783,
+   0.004863305,
+   0,
+   0.008599987,
+   0.006851065,
+   0.01438414,
+   0,
+   0.006498931,
+   0.007116667,
+   0.008320834,
+   0,
+   0.0262653,
+   0,
+   0.002043497,
+   0.01343412,
+   0,
+   0,
+   0,
+   0.02607032,
+   0.004063708,
+   0.00894226,
+   0,
+   0,
+   0,
+   0,
+   0.0384048,
+   0,
+   0,
+   0,
+   0.00869479,
+   0,
+   0.009278047,
+   0,
+   0.003955277,
+   0,
+   0,
+   0,
+   0};
+   TGraphErrors *gre = new TGraphErrors(51,Graph0_fx1005,Graph0_fy1005,Graph0_fex1005,Graph0_fey1005);
+   gre->SetName("Graph0");
+   gre->SetTitle("BPIX Track Rate");
+   gre->SetFillColor(1);
+
+   Int_t ci;      // for color index setting
+   TColor *color; // for color definition with alpha
+   ci = TColor::GetColor("#0000ff");
+   gre->SetMarkerColor(ci);
+   gre->SetMarkerStyle(20);
+   gre->SetMarkerSize(1.2);
+   
+   TH1F *Graph_Graph1005 = new TH1F("Graph_Graph1005","BPIX Track Rate",100,296983.5,297793.5);
+   Graph_Graph1005->SetMinimum(0);
+   Graph_Graph1005->SetMaximum(0.2167273);
+   Graph_Graph1005->SetDirectory(0);
+   Graph_Graph1005->SetStats(0);
+
+   ci = TColor::GetColor("#000099");
+   Graph_Graph1005->SetLineColor(ci);
+   Graph_Graph1005->GetXaxis()->SetTitle("Run Number");
+   Graph_Graph1005->GetXaxis()->SetNoExponent();
+   Graph_Graph1005->GetXaxis()->SetLabelFont(42);
+   Graph_Graph1005->GetXaxis()->SetLabelSize(0.03);
+   Graph_Graph1005->GetXaxis()->SetTitleSize(0.035);
+   Graph_Graph1005->GetXaxis()->SetTitleFont(42);
+   Graph_Graph1005->GetYaxis()->SetTitle("Track Rate (in Hz)");
+   Graph_Graph1005->GetYaxis()->SetLabelFont(42);
+   Graph_Graph1005->GetYaxis()->SetLabelSize(0.035);
+   Graph_Graph1005->GetYaxis()->SetTitleSize(0.035);
+   Graph_Graph1005->GetYaxis()->SetTitleOffset(0);
+   Graph_Graph1005->GetYaxis()->SetTitleFont(42);
+   Graph_Graph1005->GetZaxis()->SetLabelFont(42);
+   Graph_Graph1005->GetZaxis()->SetLabelSize(0.035);
+   Graph_Graph1005->GetZaxis()->SetTitleSize(0.035);
+   Graph_Graph1005->GetZaxis()->SetTitleFont(42);
+   gre->SetHistogram(Graph_Graph1005);
+   
+   gre->Draw("ap");
+   
+   TPaveText *pt = new TPaveText(0.3496491,0.94,0.6503509,0.995,"blNDC");
+   pt->SetName("title");
+   pt->SetBorderSize(0);
+   pt->SetFillColor(0);
+   pt->SetFillStyle(0);
+   pt->SetTextFont(42);
+   TText *pt_LaTex = pt->AddText("BPIX Track Rate");
+   pt->Draw();
+   c->Modified();
+   c->cd();
+   c->SetSelected(c);
+}

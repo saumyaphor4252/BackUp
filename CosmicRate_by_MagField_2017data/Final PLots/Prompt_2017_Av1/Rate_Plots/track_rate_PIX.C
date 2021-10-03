@@ -1,0 +1,372 @@
+void track_rate_PIX()
+{
+//=========Macro generated from canvas: Canvas2/Canvas2
+//=========  (Thu Jun 24 11:18:59 2021) by ROOT version6.10/04
+   TCanvas *Canvas2 = new TCanvas("Canvas2", "Canvas2",604,112,856,836);
+   gStyle->SetOptStat(0);
+   Canvas2->Range(294260.6,-0.04732146,296208.6,0.3183442);
+   Canvas2->SetFillColor(0);
+   Canvas2->SetBorderMode(0);
+   Canvas2->SetBorderSize(2);
+   Canvas2->SetGridx();
+   Canvas2->SetGridy();
+   Canvas2->SetTickx(1);
+   Canvas2->SetTicky(1);
+   Canvas2->SetLeftMargin(0.1883886);
+   Canvas2->SetRightMargin(0.03909953);
+   Canvas2->SetTopMargin(0.0875817);
+   Canvas2->SetBottomMargin(0.1294118);
+   Canvas2->SetFrameLineWidth(3);
+   Canvas2->SetFrameBorderMode(0);
+   Canvas2->SetFrameLineWidth(3);
+   Canvas2->SetFrameBorderMode(0);
+   
+   TMultiGraph *multigraph = new TMultiGraph();
+   multigraph->SetName("track rate pixel");
+   multigraph->SetTitle("");
+   
+   Double_t Graph_fx1003[61] = {
+   295663,
+   295789,
+   294899,
+   295387,
+   295816,
+   295795,
+   295728,
+   295003,
+   295915,
+   295776,
+   295718,
+   295308,
+   295778,
+   295801,
+   295829,
+   295716,
+   295727,
+   295821,
+   295002,
+   295717,
+   295725,
+   295668,
+   294898,
+   295661,
+   294696,
+   295715,
+   295118,
+   295780,
+   295902,
+   295819,
+   296023,
+   295690,
+   295779,
+   295660,
+   295913,
+   295804,
+   295671,
+   295832,
+   295822,
+   295662,
+   295117,
+   295701,
+   295721,
+   295774,
+   295839,
+   295780,
+   295304,
+   295659,
+   295901,
+   295838,
+   295907,
+   295723,
+   295726,
+   295713,
+   295729,
+   295823,
+   294895,
+   295766,
+   295814,
+   295877,
+   296064};
+   Double_t Graph_fy1003[61] = {
+   0,
+   0,
+   0,
+   0.0001295716,
+   0,
+   0,
+   0,
+   0.212964,
+   0.2494254,
+   0,
+   0,
+   0.2049881,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0.01508111,
+   0.04116665,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0.07379955,
+   0,
+   0,
+   0,
+   0,
+   0.01948391,
+   0.1711101,
+   0,
+   0,
+   0,
+   0.2152482,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0};
+   Double_t Graph_fex1003[61] = {
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0};
+   Double_t Graph_fey1003[61] = {
+   0,
+   0,
+   0,
+   0.0001295716,
+   0,
+   0,
+   0,
+   0.01313193,
+   0.02325903,
+   0,
+   0,
+   0.004072969,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0.004547125,
+   0.01680621,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0.004621507,
+   0,
+   0,
+   0,
+   0,
+   0.006161353,
+   0.01737359,
+   0,
+   0,
+   0,
+   0.01172532,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0};
+   TGraphErrors *gre = new TGraphErrors(61,Graph_fx1003,Graph_fy1003,Graph_fex1003,Graph_fey1003);
+   gre->SetName("Graph");
+   gre->SetTitle("Graph");
+   gre->SetFillColor(1);
+
+   Int_t ci;      // for color index setting
+   TColor *color; // for color definition with alpha
+   ci = TColor::GetColor("#de0b1d");
+   gre->SetMarkerColor(ci);
+   gre->SetMarkerStyle(20);
+   gre->SetMarkerSize(1.4);
+   
+   TH1F *Graph_Graph1003 = new TH1F("Graph_Graph1003","Graph",100,294559.2,296200.8);
+   Graph_Graph1003->SetMinimum(0);
+   Graph_Graph1003->SetMaximum(0.2999528);
+   Graph_Graph1003->SetDirectory(0);
+   Graph_Graph1003->SetStats(0);
+
+   ci = TColor::GetColor("#000099");
+   Graph_Graph1003->SetLineColor(ci);
+   Graph_Graph1003->GetXaxis()->SetTitle("Run Number");
+   Graph_Graph1003->GetXaxis()->SetNoExponent();
+   Graph_Graph1003->GetXaxis()->SetLabelFont(42);
+   Graph_Graph1003->GetXaxis()->SetLabelSize(0.03);
+   Graph_Graph1003->GetXaxis()->SetTitleSize(0.035);
+   Graph_Graph1003->GetXaxis()->SetTitleFont(42);
+   Graph_Graph1003->GetYaxis()->SetTitle("Track Rate (Hz)");
+   Graph_Graph1003->GetYaxis()->SetLabelFont(42);
+   Graph_Graph1003->GetYaxis()->SetLabelSize(0.035);
+   Graph_Graph1003->GetYaxis()->SetTitleSize(0.035);
+   Graph_Graph1003->GetYaxis()->SetTitleOffset(0);
+   Graph_Graph1003->GetYaxis()->SetTitleFont(42);
+   Graph_Graph1003->GetZaxis()->SetLabelFont(42);
+   Graph_Graph1003->GetZaxis()->SetLabelSize(0.035);
+   Graph_Graph1003->GetZaxis()->SetTitleSize(0.035);
+   Graph_Graph1003->GetZaxis()->SetTitleFont(42);
+   gre->SetHistogram(Graph_Graph1003);
+   
+   multigraph->Add(gre,"");
+   multigraph->Draw("AP");
+   multigraph->GetXaxis()->SetTitle("Run Number");
+   multigraph->GetXaxis()->SetNoExponent();
+   multigraph->GetXaxis()->SetLabelFont(42);
+   multigraph->GetXaxis()->SetLabelSize(0.03);
+   multigraph->GetXaxis()->SetTitleSize(0.05);
+   multigraph->GetXaxis()->SetTitleFont(42);
+   multigraph->GetYaxis()->SetTitle("Track Rate (Hz)");
+   multigraph->GetYaxis()->SetLabelFont(42);
+   multigraph->GetYaxis()->SetLabelSize(0.05);
+   multigraph->GetYaxis()->SetTitleSize(0.05);
+   multigraph->GetYaxis()->SetTitleOffset(0);
+   multigraph->GetYaxis()->SetTitleFont(42);
+   TLatex *   tex = new TLatex(0.685,0.94,"cosmic rays (2017)");
+tex->SetNDC();
+   tex->SetTextFont(42);
+   tex->SetTextSize(0.03717);
+   tex->SetLineWidth(2);
+   tex->Draw();
+      tex = new TLatex(0.23,0.83,"PIXEL");
+tex->SetNDC();
+   tex->SetTextSize(0.047);
+   tex->SetLineWidth(2);
+   tex->Draw();
+   
+   TLegend *leg = new TLegend(0.234192,0.6815366,0.4754098,0.8042131,NULL,"brNDC");
+   leg->SetBorderSize(1);
+   leg->SetTextFont(62);
+   leg->SetTextSize(0.03660131);
+   leg->SetLineColor(1);
+   leg->SetLineStyle(1);
+   leg->SetLineWidth(2);
+   leg->SetFillColor(0);
+   leg->SetFillStyle(0);
+   TLegendEntry *entry=leg->AddEntry("NULL","Magnetic Field","h");
+   entry->SetLineColor(1);
+   entry->SetLineStyle(1);
+   entry->SetLineWidth(1);
+   entry->SetMarkerColor(1);
+   entry->SetMarkerStyle(21);
+   entry->SetMarkerSize(1);
+   entry->SetTextFont(42);
+   entry=leg->AddEntry("NULL","3.8 T","lpf");
+   entry->SetFillStyle(1001);
+   entry->SetLineColor(1);
+   entry->SetLineStyle(1);
+   entry->SetLineWidth(1);
+
+   ci = TColor::GetColor("#de0b1d");
+   entry->SetMarkerColor(ci);
+   entry->SetMarkerStyle(20);
+   entry->SetMarkerSize(1.4);
+   entry->SetTextFont(42);
+   leg->Draw();
+   Canvas2->Modified();
+   Canvas2->cd();
+   Canvas2->SetSelected(Canvas2);
+}
